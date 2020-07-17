@@ -1,0 +1,2109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Teams.Shifts.Integration.BusinessLogic</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Cache.RedisTokenCache">
+            <summary>
+            Token cache implementing Redis.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Cache.RedisTokenCache.#ctor(Microsoft.Extensions.Caching.Distributed.IDistributedCache,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Cache.RedisTokenCache"/> class.
+            </summary>
+            <param name="cache">Distributed cache.</param>
+            <param name="clientId">ClientId Id.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Cache.RedisTokenCache.GetCacheKey">
+            <summary>
+            Get the key of the cache.
+            </summary>
+            <returns>Cache key.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Cache.RedisTokenCache.BeforeAccessNotification(Microsoft.IdentityModel.Clients.ActiveDirectory.TokenCacheNotificationArgs)">
+            <summary>
+            Notification raised before ADAL accesses the cache.
+            </summary>
+            <param name="args">Contains parameters used by the ADAL call accessing the cache.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Cache.RedisTokenCache.AfterAccessNotification(Microsoft.IdentityModel.Clients.ActiveDirectory.TokenCacheNotificationArgs)">
+            <summary>
+            Notification raised after ADAL accessed the cache.
+            </summary>
+            <param name="args">Contains parameters used by the ADAL call accessing the cache.</param>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity">
+            <summary>
+            This class models the new Open Shift schema.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity.TeamsOpenShiftId">
+            <summary>
+            Gets or sets the TeamsOpenShiftId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity.KronosSlots">
+            <summary>
+            Gets or sets the KronosSlots.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity.SchedulingGroupId">
+            <summary>
+            Gets or sets the SchedulingGroupId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity.OrgJobPath">
+            <summary>
+            Gets or sets the OrgJobPath.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity.OpenShiftStartDate">
+            <summary>
+            Gets or sets the open shift start date.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity">
+            <summary>
+            This class models the new schema for the Open Shift Request.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity.TeamsOpenShiftId">
+            <summary>
+            Gets or sets the OpenShiftId from Teams.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity.KronosOpenShiftUniqueId">
+            <summary>
+            Gets or sets the KronosOpenShiftUniqueId which is the hash.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity.AadUserId">
+            <summary>
+            Gets or sets the User AAD Object Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity.KronosPersonNumber">
+            <summary>
+            Gets or sets the Kronos Person Number.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity.KronosOpenShiftRequestId">
+            <summary>
+            Gets or sets the Kronos Open Shift Request Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity.KronosStatus">
+            <summary>
+            Gets or sets the status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity.ShiftsStatus">
+            <summary>
+            Gets or sets the ShiftsStatus.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllShiftsTeam">
+            <summary>
+            This class models the ShiftTeams.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllShiftsTeam.NextLink">
+            <summary>
+            Gets or sets the NextLink in Shifts for getting more timeoff requests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllShiftsTeam.ShiftTeams">
+            <summary>
+            Gets or sets the Shifts teams.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllUserMappingEntity">
+            <summary>
+            This class models the User to User mapping.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllUserMappingEntity.ShiftUserAadObjectId">
+            <summary>
+            Gets or sets the ShiftsUserAadObjectId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllUserMappingEntity.ShiftUserDisplayName">
+            <summary>
+            Gets or sets the ShiftsUserName.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllUserMappingEntity.ShiftUserUpn">
+            <summary>
+            Gets or sets the KronosPersonNumber.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllUserMappingEntity.KronosUserName">
+            <summary>
+            Gets or sets the KronosUserName.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigEntityViewModel">
+            <summary>
+            Represents the configuration entity used to bind data to datatable in Home Page.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigEntityViewModel.TenantId">
+            <summary>
+            Gets or sets the TenantId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigEntityViewModel.ConfigurationId">
+            <summary>
+            Gets or sets the ConfigurationId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigEntityViewModel.WfmSuperUsername">
+            <summary>
+            Gets or sets the WfmSuperUsername (Workforce Management Super Username).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigEntityViewModel.WfmSuperUserPassword">
+            <summary>
+            Gets or sets the WfmSuperUserPassword (Workforce Management Super User Password).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigEntityViewModel.WfmApiEndpoint">
+            <summary>
+            Gets or sets the WfmApiEndpoint (Workforce Management API Endpoint).
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity">
+            <summary>
+            Represents the configuration entity used for storage and retrieval of data in Azure Table storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity.ConfigurationId">
+            <summary>
+            Gets or sets the ConfigurationId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity.TenantId">
+            <summary>
+            Gets or sets the TenantId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity.WfmProvider">
+            <summary>
+            Gets or sets the WfmProvider (Workforce Management Provider).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity.WfmApiEndpoint">
+            <summary>
+            Gets or sets the WfmApiEndpoint (Workforce Management API Endpoint).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity.WorkforceIntegrationId">
+            <summary>
+            Gets or sets the WorkforceIntegrationId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity.WorkforceIntegrationSecret">
+            <summary>
+            Gets or sets the WorkforceIntegrationSecret.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity.AdminAadObjectId">
+            <summary>
+            Gets or sets the AdminAadObjectId - the AAD object ID of the user signed in.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.Encryption">
+            <summary>
+            Have the necessary encryption "navigation" properties.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.Encryption.Protocol">
+            <summary>
+            Gets or sets the protocol of sharing credentials.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.Encryption.Secret">
+            <summary>
+            Gets or sets the symmetric key used to encrypt the payload that will be sent over to the integration from Shifts.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.KronosDetails">
+            <summary>
+            This class models the KronosDetails.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.KronosDetails.WorkforceIntegrationId">
+            <summary>
+            Gets or sets the Workforce Integration Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.KronosDetails.KronosOrgJobPath">
+            <summary>
+            Gets or sets the KronosOrgJobPath.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SchedulingGroupDetails">
+            <summary>
+            This class models the SchedulingGroupDetails.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SchedulingGroupDetails.Value">
+            <summary>
+            Gets or sets the value which is a list of the ShiftSchedulingGroups.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftSchedulingGroups">
+            <summary>
+            This class models the ShiftSchedulingGroups.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftSchedulingGroups.ShiftSchedulingGroupId">
+            <summary>
+            Gets or sets the Scheduling group Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftSchedulingGroups.ShiftSchedulingGroupName">
+            <summary>
+            Gets or sets Scheduling group Name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftTeamDetails">
+            <summary>
+            This class models the ShiftTeamDetails.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftTeamDetails.Value">
+            <summary>
+            Gets or sets the list of Shift team with details.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftTeams">
+            <summary>
+            This class models the ShiftTeams.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftTeams.ShiftTeamId">
+            <summary>
+            Gets or sets the Team Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftTeams.ShiftTeamName">
+            <summary>
+            Gets or sets Team Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftTeams.SchedulingGroups">
+            <summary>
+            Gets or sets the list of Shift scheduling groups.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftUser">
+            <summary>
+            The class models the shift user details.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftUser.ShiftAADObjectId">
+            <summary>
+            Gets or sets the AAD id of the User in Shifts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftUser.ShiftUserDisplayName">
+            <summary>
+            Gets or sets Name of the User in Shifts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftUser.ShiftUserPrincipalName">
+            <summary>
+            Gets or sets UPN of the User in Shifts.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftUserModel">
+            <summary>
+            This class will model the necessary Shift's user information.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftUserModel.Value">
+            <summary>
+            Gets or sets the value in Shifts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftUserModel.NextLink">
+            <summary>
+            Gets or sets the NextLink in Shifts for getting more users.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsDepartmentMappingModel">
+            <summary>
+            Represents the Team to department entity used to bind data to datatable in Team department mapping.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsDepartmentMappingModel.ShiftsTeamName">
+            <summary>
+            Gets or sets the Shift team name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsDepartmentMappingModel.TeamId">
+            <summary>
+            Gets or sets the Shift team Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsDepartmentMappingModel.TeamsScheduleGroupId">
+            <summary>
+            Gets or sets the Shift scheduling group Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsDepartmentMappingModel.TeamsScheduleGroupName">
+            <summary>
+            Gets or sets the Shift scheduling group name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity">
+            <summary>
+            This class models the Teams ShiftMappingEntity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity.KronosUniqueId">
+            <summary>
+            Gets or sets the unique ID that is generated from the UniqueIdUtility.CreateUniqueId() method.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity.AadUserId">
+            <summary>
+            Gets or sets the AadObjectId of the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity.KronosPersonNumber">
+            <summary>
+            Gets or sets the KronosPersonNumber.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity.ShiftStartDate">
+            <summary>
+            Gets or Sets the shift start date.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel">
+            <summary>
+            This class will model the necessary user information.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel.KronosPersonNumber">
+            <summary>
+            Gets or sets the Kronos Person Number.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel.ShiftUserId">
+            <summary>
+            Gets or sets the Shift User Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel.ShiftTeamId">
+            <summary>
+            Gets or sets the Shift User Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel.ShiftScheduleGroupId">
+            <summary>
+            Gets or sets the Shift scheduleGroupId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel.OrgJobPath">
+            <summary>
+            Gets or sets the OrgJobPath.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel.ShiftUserDisplayName">
+            <summary>
+            Gets or sets the Shift User Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel.Error">
+            <summary>
+            Gets or sets the error.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity">
+            <summary>
+            This class defines the Azure table schema for the OpenShiftRequestMapping.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.OpenShiftRequestMappingId">
+            <summary>
+            Gets or sets the OpenShiftRequestMappingId -
+            the PRIMARY KEY.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.TeamsTenantId">
+            <summary>
+            Gets or sets the TenantId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.TeamsOpenShiftId">
+            <summary>
+            Gets or sets the OpenShiftId from Teams.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.TeamsShiftRequestId">
+            <summary>
+            Gets or sets the ShiftRequestId -
+            this is coming from the outbound request.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.TeamsUserId">
+            <summary>
+            Gets or sets the AadObjectId of the Teams user -
+            this is coming from the outbound request.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.KronosPersonNumber">
+            <summary>
+            Gets or sets the KronosPersonNumber -
+            this is coming from the UserToUserMapping.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.KronosRequestId">
+            <summary>
+            Gets or sets the KronosRequestId -
+            this is coming from when the Open Shift Request is posted to Kronos.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.KronosRequestStatus">
+            <summary>
+            Gets or sets the KronosRequestStatus -
+            this is coming from when the Open Shift Request in Kronos is updated
+            to SUBMITTED from DRAFT.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.KronosOrgJobPath">
+            <summary>
+            Gets or sets the OrgJobPath -
+            this is from the request being made to push the Open Shift Request into Kronos
+            (going in as DRAFT).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.MonthWisePartition">
+            <summary>
+            Gets or sets the MonthWisePartition.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity.KronosOpenShiftUniqueId">
+            <summary>
+            Gets or sets the Hash of attributes of OpenShift, need to be obtained by using OpenShiftMapping
+            for a given Teams Open Shift Id.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.PayCodeToTimeOffReasonsMappingEntity">
+            <summary>
+            This class models the PayCodeToTimeOffReason Mapping.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.PayCodeToTimeOffReasonsMappingEntity.KronosPayCode">
+            <summary>
+            Gets or sets the KronosPayCode.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.PayCodeToTimeOffReasonsMappingEntity.TimeOffReasonId">
+            <summary>
+            Gets or sets the TimeOffReasonId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.PayCodeToTimeOffReasonsMappingEntity.TeamsId">
+            <summary>
+            Gets or sets the TeamsId.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftMappingEntity">
+            <summary>
+            This class models the ShiftMappingEntity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftMappingEntity.ShiftMappingEntityId">
+            <summary>
+            Gets or sets the ShiftMappingEntityId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftMappingEntity.TenantId">
+            <summary>
+            Gets or sets the TenantId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftMappingEntity.GraphShiftId">
+            <summary>
+            Gets or sets the Shift ID from Shifts - "SHFT_guid".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftMappingEntity.KronosUniqueId">
+            <summary>
+            Gets or sets the unique ID that is generated from the UniqueIdUtility.CreateUniqueId() method.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftMappingEntity.AadUserId">
+            <summary>
+            Gets or sets the AadObjectId of the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftMappingEntity.KronosPersonNumber">
+            <summary>
+            Gets or sets the KronosPersonNumber.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity">
+            <summary>
+            This class models the Team-Department mapping.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity.WorkforceIntegrationId">
+            <summary>
+            Gets or sets the workforceIntegrationId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity.TeamId">
+            <summary>
+            Gets or sets the TeamId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity.ShiftsTeamName">
+            <summary>
+            Gets or sets the Team name in Shifts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity.TeamDescription">
+            <summary>
+            Gets or sets the Team description.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity.TeamInternalId">
+            <summary>
+            Gets or sets the Team description.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity.TeamUrl">
+            <summary>
+            Gets or sets the Team url.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity.IsArchived">
+            <summary>
+            Gets or sets a value indicating whether the status of Shifts team is archived.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.Graph.GraphTokenResponse">
+            <summary>
+            Having the ability to model the Graph Token Response.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.Graph.GraphTokenResponse.TokenType">
+            <summary>
+            Gets or sets the token_type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.Graph.GraphTokenResponse.ExpiresIn">
+            <summary>
+            Gets or sets the duration as to when the token will expire.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.Graph.GraphTokenResponse.AccessToken">
+            <summary>
+            Gets or sets the access_token.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration">
+            <summary>
+            This class models the request object to be forwarding to Graph API.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration.DisplayName">
+            <summary>
+            Gets or sets the displayName.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration.ApiVersion">
+            <summary>
+            Gets or sets the apiVersion.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration.IsActive">
+            <summary>
+            Gets or sets a value indicating whether or not a workforce integration is active.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration.Encryption">
+            <summary>
+            Gets or sets the encryption.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration.Url">
+            <summary>
+            Gets or sets the url.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration.Supports">
+            <summary>
+            Gets or sets the functionalities supported for the outbound sync (from Shifts to the WFM provider).
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity">
+            <summary>
+            This class models the ShiftMappingEntity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.TeamsOfferedShiftId">
+            <summary>
+            Gets or sets the Shift ID from Shifts - "SHFT_guid".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.TeamsRequestedShiftId">
+            <summary>
+            Gets or sets TeamsRequestedShiftId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.KronosUniqueIdForOfferedShift">
+            <summary>
+            Gets or sets the unique ID that is generated from the UniqueIdUtility.CreateUniqueId() method.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.KronosUniqueIdForRequestedShift">
+            <summary>
+            Gets or sets the unique ID that is generated from the UniqueIdUtility.CreateUniqueId() method.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.AadUserId">
+            <summary>
+            Gets or sets the AadObjectId of the user.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.RequestorKronosPersonNumber">
+            <summary>
+            Gets or sets the KronosPersonNumber.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.RequestedKronosPersonNumber">
+            <summary>
+            Gets or sets the RequestedKronosPersonNumber.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.KronosStatus">
+            <summary>
+            Gets or sets the Kronos StatusName.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.ShiftsStatus">
+            <summary>
+            Gets or sets the Shifts StatusName.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.KronosReqId">
+            <summary>
+            Gets or sets the KronosReqId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity.ShiftsTeamId">
+            <summary>
+            Gets or sets Shifts teams id.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamToDepartmentJobMappingEntity">
+            <summary>
+            This class models the Team-to-DepartmentJob mapping.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamToDepartmentJobMappingEntity.ShiftsTeamName">
+            <summary>
+            Gets or sets the Team name in Shifts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamToDepartmentJobMappingEntity.TeamId">
+            <summary>
+            Gets or sets the Team Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamToDepartmentJobMappingEntity.TeamsScheduleGroupId">
+            <summary>
+            Gets or sets the Team scheduled group id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamToDepartmentJobMappingEntity.TeamsScheduleGroupName">
+            <summary>
+            Gets or sets the Team scheduled group name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity">
+            <summary>
+            This class models the TimeOffMappingEntity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.KronosRequestId">
+            <summary>
+            Gets or sets the KronosRequestId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.ShiftsRequestId">
+            <summary>
+            Gets or sets the ShiftsRequestId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.KronosPersonNumber">
+            <summary>
+            Gets or sets the KronosPersonNumber.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.StartDate">
+            <summary>
+            Gets or sets the StartDate.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.StartTime">
+            <summary>
+            Gets or sets the StartTime.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.EndDate">
+            <summary>
+            Gets or sets the EndDate.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.PayCodeName">
+            <summary>
+            Gets or sets the PayCodeName.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.Duration">
+            <summary>
+            Gets or sets the Duration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.StatusName">
+            <summary>
+            Gets or sets the StatusName.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity.IsActive">
+            <summary>
+            Gets or sets a value indicating whether or not a time off is requested.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserMappingEntity">
+            <summary>
+            This class models the User to User mapping.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserMappingEntity.UserToUserMappingId">
+            <summary>
+            Gets or sets the UserToUserMappingId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserMappingEntity.TenantId">
+            <summary>
+            Gets or sets the TenantId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserMappingEntity.ShiftsTeamId">
+            <summary>
+            Gets or sets the ShiftsTeamId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserMappingEntity.ShiftsUserAadObjectId">
+            <summary>
+            Gets or sets the ShiftsUserAadObjectId.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserMappingEntity.ShiftsUserName">
+            <summary>
+            Gets or sets the ShiftsUserName.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserMappingEntity.KronosPersonNumber">
+            <summary>
+            Gets or sets the KronosPersonNumber.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserMappingEntity.KronosUserName">
+            <summary>
+            Gets or sets the KronosUserName.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.WorkforceIntegrationEntity">
+            <summary>
+            This class models the WorkforceIntegrationEntity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.WorkforceIntegrationEntity.Id">
+            <summary>
+            Gets or sets the Id of the WorkforceIntegration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.WorkforceIntegrationEntity.DisplayName">
+            <summary>
+            Gets or sets the displayName of the WorkforceIntegration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.WorkforceIntegrationEntity.ApiVersion">
+            <summary>
+            Gets or sets the apiVersion of the WorkforceIntegration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.WorkforceIntegrationEntity.IsActive">
+            <summary>
+            Gets or sets a value indicating whether or not a Workforce Integration is active.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.WorkforceIntegrationEntity.Encryption">
+            <summary>
+            Gets or sets the encryption of the WorkforceIntegration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.WorkforceIntegrationEntity.Url">
+            <summary>
+            Gets or sets the URL of the WorkforceIntegration (NOT Workforce Management endpoint).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.WorkforceIntegrationEntity.Supports">
+            <summary>
+            Gets or sets a flag that could have the value of either: none, shift, or swapRequest.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftMappingEntity">
+            <summary>
+            This class models the Open Shift Entity being mapped betweeen Kronos and Shifts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftMappingEntity.OpenShiftMappingEntityId">
+            <summary>
+            Gets or sets the OpenShiftMappingEntityId - this serves as the Primary Key.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftMappingEntity.GraphOpenShiftId">
+            <summary>
+            Gets or sets the Open Shift ID from Shifts - "OPNSHFT_guid".
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftMappingEntity.KronosUniqueId">
+            <summary>
+            Gets or sets the unique ID that is generated from the UniqueIdUtility.CreateUniqueId(OpenShift openShift) method.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftMappingEntity.KronosSlots">
+            <summary>
+            Gets or sets the KronosSlots.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftMappingEntity.MonthWisePartition">
+            <summary>
+            Gets or sets the MonthWisePartition.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.ResponseError">
+            <summary>
+            This class models the error on the integration response.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.ResponseError.Code">
+            <summary>
+            Gets or sets the code.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.ResponseError.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.Body">
+            <summary>
+            This class models the body of the Integration Service API response.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.Body.ETag">
+            <summary>
+            Gets or sets the ETag.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.Body.Error">
+            <summary>
+            Gets or sets the error.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.IntegrationApiResponseModel">
+            <summary>
+            This class models the api response to send back to Shifts.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.IntegrationApiResponseModel.ShiftsIntegResponses">
+            <summary>
+            Gets or sets the responses.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.ShiftsIntegResponse">
+            <summary>
+            This class models a single Integration API response.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.ShiftsIntegResponse.Id">
+            <summary>
+            Gets or sets the id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.ShiftsIntegResponse.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.ResponseModels.ShiftsIntegResponse.Body">
+            <summary>
+            Gets or sets the body.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.RequestModels.OpenShiftRequestApproval">
+            <summary>
+            This class defines the OpenShiftRequestApproval object.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.RequestModels.OpenShiftRequestApproval.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.AzureTableStorageHelper">
+            <summary>
+            Azure table storage helper class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.AzureTableStorageHelper.#ctor(System.String,Microsoft.ApplicationInsights.TelemetryClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.AzureTableStorageHelper" /> class.
+            </summary>
+            <param name="connectionString">The database connection string.</param>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.AzureTableStorageHelper.TableClient">
+            <summary>
+            Gets cloud table client.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.AzureTableStorageHelper.StorageAccount">
+            <summary>
+            Gets the field to access storage account.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.AzureTableStorageHelper.InsertOrMergeTableEntityAsync``1(``0,System.String)">
+            <summary>
+            Insert or merge the activity Id.
+            </summary>
+            <typeparam name="T">The table entity.</typeparam>
+            <param name="entity">The table entity to merge or insert.</param>
+            <param name="tableName">The name of the Azure Table.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.AzureTableStorageHelper.FetchTableRecordsAsync``1(System.String,System.String)">
+            <summary>
+            This method will fetch records from an Azure table.
+            </summary>
+            <typeparam name="T">A generic type.</typeparam>
+            <param name="tableName">The name of the Azure table.</param>
+            <param name="partitionKey">The partition key of that table.</param>
+            <returns>A list of type T that is boxed in a unit of execution.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider">
+            <summary>
+            This class implements the methods defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IConfigurationProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider.#ctor(System.String,Microsoft.ApplicationInsights.TelemetryClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider"/> class.
+            </summary>
+            <param name="connectionString">The Azure table storage connection string.</param>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider.SaveOrUpdateConfigurationAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity)">
+            <summary>
+            Saves or updates a configuration entity.
+            </summary>
+            <param name="configuration">The configuration data.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider.DeleteConfigurationAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity)">
+            <summary>
+            Method to delete the configuration entity.
+            </summary>
+            <param name="entity">The configuration to be deleted.</param>
+            <returns>A unit of execution to say whether or not the delete happened successfully.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider.GetConfigurationAsync(System.String,System.String)">
+            <summary>
+            Retrieves a configuration that has been saved.
+            </summary>
+            <param name="tenantId">The tenantId.</param>
+            <param name="configurationId">The name of the workforce provider.</param>
+            <returns>A unit of execution that contains a configuration entity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider.GetConfigurationsAsync">
+            <summary>
+            Function that will return all of the configurations that are registered in Azure Table storage.
+            </summary>
+            <returns>A list of the configurations established.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider.InitializeAsync(System.String)">
+            <summary>
+            Creates the Azure table if the table does not already exist.
+            </summary>
+            <param name="connectionString">The connection string for the Azure storage.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider.StoreOrUpdateEntityAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity)">
+            <summary>
+            The actual operation of adding or updating a record in Azure Table storage.
+            </summary>
+            <param name="entity">The entity to add or update.</param>
+            <returns>A unit of execution that has the new record boxed in.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ConfigurationProvider.EnsureInitializedAsync">
+            <summary>
+            Having the necessary entities properly created.
+            </summary>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility">
+            <summary>
+            Implements the methods that are defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Extensions.Caching.Distributed.IDistributedCache,System.Net.Http.IHttpClientFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility"/> class.
+            </summary>
+            <param name="telemetryClient">The application insights DI.</param>
+            <param name="cache">Cache.</param>
+            <param name="httpClientFactory">Http Client Factory DI.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility.RegisterWorkforceIntegrationAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration,System.String)">
+            <summary>
+            Method to call the Graph API to register the workforce integration.
+            </summary>
+            <param name="workforceIntegration">The workforce integration.</param>
+            <param name="accessToken">The access token.</param>
+            <returns>The JSON response of the Workforce Integration registration.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility.FetchShiftUserDetailsAsync(System.String)">
+            <summary>
+            Fetch user details for shifts using graph api tokens.
+            </summary>
+            <param name="accessToken">Access Token.</param>
+            <returns>The shift user.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility.FetchShiftTeamDetailsAsync(System.String)">
+            <summary>
+            Fetch user details for shifts using graph api tokens.
+            </summary>
+            <param name="accessToken">Access Token.</param>
+            <returns>The shift user.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility.GetAccessTokenAsync(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Method that will obtain the Graph token.
+            </summary>
+            <param name="tenantId">The Tenant ID.</param>
+            <param name="instance">The instance.</param>
+            <param name="clientId">The App ID of the Web Application.</param>
+            <param name="clientSecret">The client secret.</param>
+            <param name="userId">The AAD Object ID of the Admin, could also be the UPN.</param>
+            <returns>A string that represents the Microsoft Graph API token.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility.DeleteWorkforceIntegrationAsync(System.String,System.String)">
+            <summary>
+            Method that will delete the workforce integration from MS Graph.
+            </summary>
+            <param name="workforceIntegrationId">The workforce integration ID to delete.</param>
+            <param name="accessToken">The access token.</param>
+            <returns>A unit of execution that contains the response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility.FetchSchedulingGroupDetailsAsync(System.String,System.String)">
+            <summary>
+            Method that fetchs the scheduling group details based on the shift teams Id provided.
+            </summary>
+            <param name="accessToken">Access Token.</param>
+            <param name="shiftTeamId">Shift Team Id.</param>
+            <returns>Shift scheduling group details.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.GraphUtility.AddWFInScheduleAsync(System.String,Microsoft.Graph.GraphServiceClient,System.String,System.String)">
+            <summary>
+            Method to update the Workforce Integration ID to the schedule.
+            </summary>
+            <param name="teamsId">The Shift team Id.</param>
+            <param name="graphClient">The Graph Client.</param>
+            <param name="wfIID">The Workforce Integration Id.</param>
+            <param name="accessToken">The MS Graph Access token.</param>
+            <returns>A unit of execution that contains the success or failure Response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IAzureTableStorageHelper">
+            <summary>
+            This interface defines the necessary methods for the Azure table storage.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IAzureTableStorageHelper.InsertOrMergeTableEntityAsync``1(``0,System.String)">
+            <summary>
+            This will insert or merge table entities.
+            </summary>
+            <typeparam name="T">The entity.</typeparam>
+            <param name="entity">Entity to merge/insert.</param>
+            <param name="tableName">The table name.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IAzureTableStorageHelper.FetchTableRecordsAsync``1(System.String,System.String)">
+            <summary>
+            This method will fetch records from an Azure table.
+            </summary>
+            <typeparam name="T">A generic type.</typeparam>
+            <param name="tableName">The name of the Azure table.</param>
+            <param name="partitionKey">The partition key of that table.</param>
+            <returns>A list of type T that is boxed in a unit of execution.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IConfigurationProvider">
+            <summary>
+            Interface of the configuration provider.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IConfigurationProvider.SaveOrUpdateConfigurationAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity)">
+            <summary>
+            Method definition to save or update data in the Azure table storage.
+            </summary>
+            <param name="configuration">The configuration data to save or update.</param>
+            <returns>A value indicating whether or not the data was saved successfully.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IConfigurationProvider.DeleteConfigurationAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ConfigurationEntity)">
+            <summary>
+            Method to delete the configuration entity.
+            </summary>
+            <param name="configuration">The configuration entity to delete.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IConfigurationProvider.GetConfigurationAsync(System.String,System.String)">
+            <summary>
+            Method definition for retrieving the necessary data from the Azure table storage.
+            </summary>
+            <param name="tenantId">The partition key.</param>
+            <param name="configurationId">The row key.</param>
+            <returns>The details for a specific configuration.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IConfigurationProvider.GetConfigurationsAsync">
+            <summary>
+            Method to get all of the saved data.
+            </summary>
+            <returns>A list of configurations that have been saved.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility">
+            <summary>
+            This interface will contain the necessary methods to interface with Microsoft Graph.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility.RegisterWorkforceIntegrationAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.RequestModels.WorkforceIntegration,System.String)">
+            <summary>
+            This method will make the call to Microsoft Graph to be able to register the workforce integration.
+            </summary>
+            <param name="workforceIntegration">The data to register the workforce integration.</param>
+            <param name="accessToken">The MS Graph API token.</param>
+            <returns>A string that contains the necessary response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility.FetchShiftUserDetailsAsync(System.String)">
+            <summary>
+            Fetch user details for shifts using graph api tokens.
+            </summary>
+            <param name="accessToken">Access Token.</param>
+            <returns>The shift user.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility.FetchShiftTeamDetailsAsync(System.String)">
+            <summary>
+            Fetch user details for shifts using graph api tokens.
+            </summary>
+            <param name="accessToken">Access Token.</param>
+            <returns>The shift user.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility.GetAccessTokenAsync(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Method that will get the Microsoft Graph token.
+            </summary>
+            <param name="tenantId">The Tenant ID.</param>
+            <param name="instance">The instance.</param>
+            <param name="clientId">The App ID of the Configuration Web App.</param>
+            <param name="clientSecret">The Client Secret.</param>
+            <param name="userId">The user ID.</param>
+            <returns>The string that represents the Microsoft Graph token.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility.DeleteWorkforceIntegrationAsync(System.String,System.String)">
+            <summary>
+            Method that will remove the WorkforceIntegrationId from MS Graph.
+            </summary>
+            <param name="workforceIntegrationId">The Workforce Integration ID to delete.</param>
+            <param name="accessToken">The graph access token.</param>
+            <returns>A unit of exection that represents the response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility.FetchSchedulingGroupDetailsAsync(System.String,System.String)">
+            <summary>
+            Method that fetchs the scheduling group details based on the shift teams Id provided.
+            </summary>
+            <param name="accessToken">The graph access token.</param>
+            <param name="shiftTeamId">The Shift team Id.</param>
+            <returns>Shift scheduling group details.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IGraphUtility.AddWFInScheduleAsync(System.String,Microsoft.Graph.GraphServiceClient,System.String,System.String)">
+            <summary>
+            Method that fetchs the scheduling group details based on the shift teams Id provided.
+            </summary>
+            <param name="teamsId">The Shift team Id.</param>
+            <param name="graphClient">The Graph Client.</param>
+            <param name="wfIID">The Workforce Integration Id.</param>
+            <param name="accessToken">The MS Graph Access token.</param>
+            <returns>A unit of execution that contains the success or failure Response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftMappingEntityProvider">
+            <summary>
+            This interface defines all of the necessary methods that are required for mapping open shifts between Kronos and Shifts.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftMappingEntityProvider.SaveOrUpdateOpenShiftMappingEntityAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity)">
+            <summary>
+            Method definition that saves or updates the OpenShiftMappingEntity in Azure table storage.
+            </summary>
+            <param name="entity">The OpenShiftMappingEntity to save or update.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftMappingEntityProvider.DeleteOrphanDataFromOpenShiftMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity)">
+            <summary>
+            Method to delete the orphan data from open shifts mapping entity.
+            </summary>
+            <param name="entity">The mapping entity to be deleted.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftMappingEntityProvider.GetOpenShiftMappingEntitiesAsync(System.String)">
+            <summary>
+            Method implementation to be able to return matched entry for the OpenShiftEntityMapping table.
+            </summary>
+            <param name="openShiftId">The open shift Id.</param>
+            <returns>Entity associated with the open shift Id.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftMappingEntityProvider.GetAllOpenShiftMappingEntitiesInBatch(System.String,System.String,System.String,System.String)">
+            <summary>
+            The method definition to be getting entities in a batch manner.
+            </summary>
+            <param name="monthPartitionKey">The partition key to search.</param>
+            <param name="schedulingGroupId">The scheduling group ID for the open shifts.</param>
+            <param name="queryStartDate">Query start date.</param>
+            <param name="queryEndDate">Query end date.</param>
+            <returns>A unit of execution that contains a list of <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftMappingEntityProvider.DeleteOrphanDataFromOpenShiftMappingByOpenShiftIdAsync(System.String)">
+            <summary>
+            Method definition to delete an open shift mapping entity by the Open Shift ID.
+            </summary>
+            <param name="openShiftId">The open shift ID of the record to delete.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftRequestMappingEntityProvider">
+            <summary>
+            This file contains the necessary definitions of the methods to be implemented.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftRequestMappingEntityProvider.SaveOrUpdateOpenShiftRequestMappingEntityAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity)">
+            <summary>
+            Method definition for saving or updating the OpenShiftRequestMappingEntity.
+            </summary>
+            <param name="entity">An object of type <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.OpenShiftRequestMappingEntity"/> which is to be saved or updated.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftRequestMappingEntityProvider.GetOpenShiftRequestMappingEntityByKronosReqIdAsync(System.String)">
+            <summary>
+            Obtaining the necessary data by the Kronos Request Id.
+            </summary>
+            <param name="kronosReqId">The Kronos Request Id.</param>
+            <returns>A unit of execution that contains the new open shift entity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftRequestMappingEntityProvider.GetOpenShiftRequestMappingEntityByOpenShiftRequestIdAsync(System.String)">
+            <summary>
+            Obtaining the open shift request mapping entity by the open shift request ID from Shifts.
+            </summary>
+            <param name="shiftsOpenShiftRequestId">The Open Shift Request Id.</param>
+            <returns>A unit of execution that contains the Open Shift Request Mapping entity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftRequestMappingEntityProvider.CheckOpenShiftRequestExistance(System.String)">
+            <summary>
+            Method definition to check the existence of an open shift in the Open Shift Request table.
+            </summary>
+            <param name="teamsOpenShiftId">The Teams Open Shift ID.</param>
+            <returns>A unit of execution that contains a boolean value.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftRequestMappingEntityProvider.GetOpenShiftRequestMappingEntityByOpenShiftIdAsync(System.String,System.String)">
+            <summary>
+            Method to get the open shift request by the open shift ID.
+            </summary>
+            <param name="openShiftId">The open shift ID.</param>
+            <param name="openShiftReqId">The open shift request id.</param>
+            <returns>A unit of execution that contains the Open Shift Request mapping entity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IShiftMappingEntityProvider">
+            <summary>
+            This interface defines the necessary methods with regards to the ShiftMappingEntity.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IShiftMappingEntityProvider.SaveOrUpdateShiftMappingEntityAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity,System.String,System.String)">
+            <summary>
+            Method definition to save or update the ShiftMappingEntity data in Azure table storage.
+            </summary>
+            <param name="entity">The ShiftMappingEntity to save or update.</param>
+            <param name="shiftId">The ShiftID to save or update.</param>
+            <param name="monthPartitionKey">Month Partition Value.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IShiftMappingEntityProvider.DeleteOrphanDataFromShiftMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity)">
+            <summary>
+            Method to delete the orphan data from shifts mapping entity.
+            </summary>
+            <param name="entity">The mapping entity to be deleted.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IShiftMappingEntityProvider.GetAllShiftMappingEntitiesInBatchAsync(System.Collections.Generic.IEnumerable{Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel},System.String,System.String,System.String)">
+            <summary>
+            Get all shift data from lookup table for the current batch.
+            </summary>
+            <param name="processKronosUsersInBatchList">Model to store list of user information.</param>
+            <param name="monthPartitionKey">Month Partition Value.</param>
+            <param name="queryStartDate">Query start date.</param>
+            <param name="queryEndDate">Query end date.</param>
+            <returns>ShiftMappingEntity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IShiftMappingEntityProvider.GetShiftEntityAsync(System.String,System.String)">
+            <summary>
+            Method that would be able to return based on the PartitionKey, hash, and Shift "ID".
+            </summary>
+            <param name="monthPartition">The month partition.</param>
+            <param name="rowKey">The Row Key for the shift entity mapping.</param>
+            <returns>A unit of execution that contains TeamsShiftMapping.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IShiftMappingEntityProvider.GetShiftMappingEntityByRowKeyAsync(System.String)">
+            <summary>
+            Method that retrieves a temporary shift.
+            </summary>
+            <param name="tempShiftRowKey">The temporary shift row key.</param>
+            <returns>A unit of execution that contains the TeamsShiftMappingEntity - represents the temp entry.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ISwapShiftMappingEntityProvider">
+            <summary>
+            This interface defines all of the necessary methods that are required for mapping time off between Kronos and Shifts.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ISwapShiftMappingEntityProvider.GetAllSwapShiftMappingEntitiesAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            Get all the time off entities for a user.
+            </summary>
+            <param name="kronosReqIds">Kronos req ids.</param>
+            <returns>Mapped time off entities.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ISwapShiftMappingEntityProvider.AddOrUpdateSwapShiftMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity)">
+            <summary>
+            Adds an entity to SwapShiftMapping table.
+            </summary>
+            <param name="swapShiftMappingEntity">SwapShiftMappingEntity instance.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ISwapShiftMappingEntityProvider.GetKronosReqAsync(System.String)">
+            <summary>
+            Method to get the list of Swap Shift Mapping entities based on an Id.
+            </summary>
+            <param name="swapShiftRedId">The swap shift request id.</param>
+            <returns>A unit of execution that contains the List of SwapShiftMappingEntity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ISwapShiftMappingEntityProvider.CheckShiftExistanceAsync(System.String)">
+            <summary>
+            Method to check the existence of a record in Azure table storage.
+            </summary>
+            <param name="shiftId">The shiftId to check.</param>
+            <returns>A unit of execution that contains the boolean value.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ISwapShiftMappingEntityProvider.GetShiftDetailsAsync(System.String)">
+            <summary>
+            Method to check the existence of a record in Azure table storage.
+            </summary>
+            <param name="shiftId">The shiftId to check.</param>
+            <returns>A unit of execution that contains the boolean value.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ISwapShiftMappingEntityProvider.GetPendingRequest">
+            <summary>
+            Method to find request is in pending state.
+            </summary>
+            <returns>List of swap shift pending requests.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider">
+            <summary>
+            The interface for defining the necessary methods to get the necessary mappings
+            between a Team in Shifts and a Department in Kronos.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider.GetTeamMappingForOrgJobPathAsync(System.String,System.String)">
+            <summary>
+            Retrieves a single TeamDepartmentMapping from Azure Table storage.
+            </summary>
+            <param name="workForceIntegrationId">WorkForceIntegration Id.</param>
+            <param name="orgJobPath">Kronos Org Job Path.</param>
+            <returns>A unit of execution that boxes a <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider.SaveOrUpdateShiftsTeamDepartmentMappingAsync(Microsoft.Graph.Team,System.String,System.String,System.String)">
+            <summary>
+            Saving or updating a mapping between a Team in Shifts and Department in Kronos.
+            </summary>
+            <param name="shiftsTeamsDetails">Shifts team details fetched via Graph api calls.</param>
+            <param name="kronosDepartmentName">Department name fetched from Kronos.</param>
+            <param name="workforceIntegrationId">The Workforce Integration Id.</param>
+            <param name="tenantId">Tenant Id.</param>
+            <returns><see cref="T:System.Threading.Tasks.Task"/> that resolves successfully if the data was saved successfully.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider.GetMappedTeamDetailsAsync">
+            <summary>
+            Function that will return all of the teams that are mapped in Azure Table storage.
+            </summary>
+            <returns>A list of the mapped teams.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider.GetMappedTeamToDeptsWithJobPathsAsync">
+            <summary>
+            This method definition will be getting all of the team to department mappings
+            that have OrgJobPaths.
+            </summary>
+            <returns>A list of TeamToDepartmentJobMappingEntity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider.GetAllOrgJobPathsAsync">
+            <summary>
+            This method will get all of the OrgJobPaths at one shot.
+            </summary>
+            <returns>A list of string records contained in a unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider.TeamsToDepartmentMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsDepartmentMappingModel)">
+            <summary>
+            Method to save or update Teams to Department mapping.
+            </summary>
+            <param name="entity">The entity to delete.</param>
+            <returns>http status code representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider.GetTeamDeptMappingDetailsAsync">
+            <summary>
+            Function that will return all of the teams and department that are mapped in Azure Table storage.
+            </summary>
+            <returns>List of Team and Department mapping model.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider.DeleteMappedTeamDeptDetailsAsync(System.String,System.String)">
+            <summary>
+            Method to delete teams and Department mapping.
+            </summary>
+            <param name="partitionKey">The partition key.</param>
+            <param name="rowKey">The row key.</param>
+            <returns>boolean value that indicates delete success.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffMappingEntityProvider">
+            <summary>
+            This interface defines all of the necessary methods that are required for mapping time off between Kronos and Shifts.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffMappingEntityProvider.GetAllTimeOffMappingEntitiesAsync(System.Collections.Generic.IEnumerable{Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel},System.String)">
+            <summary>
+            Get all the time off entities.
+            </summary>
+            <param name="processKronosUsersInBatchList">Users in batch.</param>
+            <param name="monthPartitionKey">Month Partition.</param>
+            <returns>Mapped time off entities based on month partition and batched users.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffReasonProvider">
+            <summary>
+            This interface defines methods to be implemented with regards to the TimeOff Reason Entity.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffReasonProvider.GetTimeOffReasonsAsync">
+            <summary>
+            Function that will return all of the configurations that are registered in Azure Table storage.
+            </summary>
+            <returns>A list of the configurations established.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffReasonProvider.FetchReasonsForTeamsAsync(System.String,System.String)">
+            <summary>
+            Function that will return all the reasons of a team.
+            </summary>
+            <param name="teamsId">Shift teams id.</param>
+            <param name="tenantId">tenant id.</param>
+            <returns>time off reasons.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffRequestProvider">
+            <summary>
+            This interface defines methods to be implemented with regards to the TimeOff Request Entity.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffRequestProvider.GetAllTimeOffReqMappingEntitiesAsync(System.String,System.String)">
+            <summary>
+            Method definition to get all the TimeOffReqMappingEntities.
+            </summary>
+            <param name="monthPartitionKey">The Month partition key.</param>
+            <param name="timeOffReqId">The TimeOffReqId.</param>
+            <returns>A unit of execution containing a list of the time off requests.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IUserMappingProvider">
+            <summary>
+            The interface for defining the necessary methods to get the necessary mappings
+            between a User in Shifts to a User in Kronos.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IUserMappingProvider.GetAllMappedUserDetailsAsync">
+            <summary>
+            Function that will return all of the Users that are mapped in Azure Table storage.
+            </summary>
+            <returns>A list of the mapped Users.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IUserMappingProvider.GetUserMappingEntityAsyncNew(System.String,System.String)">
+            <summary>
+            Gets a single user entity mapping record.
+            </summary>
+            <param name="userAadObjectId">The partition key - UserAadObjectId.</param>
+            <param name="teamId">The row key - the TeamId.</param>
+            <returns>A unit of execution that contains the UserMappingEntity.</returns>
+            To Do
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IUserMappingProvider.KronosShiftUsersMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllUserMappingEntity)">
+            <summary>
+            Method to import Kronons and Shift users data.
+            </summary>
+            <param name="entity">Mapped User Entity.</param>
+            <returns>Success if Kronos, Shift mapped users are fetched.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IUserMappingProvider.GetDistinctOrgJobPatAsync">
+            <summary>
+            Method to get distinct Kronos org job path.
+            </summary>
+            <returns>List of distinct OrgJobPath.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IUserMappingProvider.DeleteMappedUserDetailsAsync(System.String,System.String)">
+            <summary>
+            Method to get delete Mapped user details.
+            </summary>
+            <param name="partitionKey">Kronos OrgJobPath.</param>
+            <param name="rowKey">Kronos person number.</param>
+            <returns>Success if successfully deleted.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider">
+            <summary>
+            This class implements methods that are defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftMappingEntityProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider"/> class.
+            </summary>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+            <param name="connectionString">The Azure table storage connection string.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider.SaveOrUpdateOpenShiftMappingEntityAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity)">
+            <summary>
+            Method implementation to be able to store or update the OpenShiftMapppingEntity.
+            </summary>
+            <param name="entity">The open shift mapping entity.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider.GetOpenShiftMappingEntitiesAsync(System.String)">
+            <summary>
+            Method implementation to be able to return all entries for the OpenShiftEntityMapping table.
+            </summary>
+            <param name="openShiftId">The open shift Id.</param>
+            <returns>A list of all the entities in the Azure table.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider.DeleteOrphanDataFromOpenShiftMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftMappingEntity)">
+            <summary>
+            Method to delete the orphan data from open shifts mapping entity.
+            </summary>
+            <param name="entity">The mapping entity to be deleted.</param>
+            <returns>A unit of execution to say whether or not the delete happened successfully.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider.GetAllOpenShiftMappingEntitiesInBatch(System.String,System.String,System.String,System.String)">
+            <summary>
+            Method to get all shift mapping entities.
+            </summary>
+            <param name="monthPartitionKey">The month partition key.</param>
+            <param name="schedulingGroupId">The scheduling group ID.</param>
+            <param name="queryStartDate">Query start date.</param>
+            <param name="queryEndDate">Query end date.</param>
+            <returns>Gets a list of all the open shift mapping entities in the batch.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider.DeleteOrphanDataFromOpenShiftMappingByOpenShiftIdAsync(System.String)">
+            <summary>
+            This method deletes the open shift by the open shift ID from the database.
+            </summary>
+            <param name="openShiftId">The open shift ID.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftMappingEntityProvider.GetAllOpenShiftMappingEntitiesInBatchAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            This method gets all Open Shift Mapping entities in batch.
+            </summary>
+            <param name="monthPartitionKey">The month wise partition key.</param>
+            <param name="schedulingGroupId">The scheduling group ID.</param>
+            <param name="queryStartDate">Query start date.</param>
+            <param name="queryEndDate">Query end date.</param>
+            <returns>A unit of execution that contains a list of open shift mapping entities.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftRequestMappingEntityProvider">
+            <summary>
+            The OpenShiftRequestMappingEntityProvider class implementing all methods defined in
+            <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IOpenShiftRequestMappingEntityProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftRequestMappingEntityProvider.#ctor(System.String,Microsoft.ApplicationInsights.TelemetryClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftRequestMappingEntityProvider"/> class.
+            </summary>
+            <param name="connectionString">The Azure table storage connection string.</param>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftRequestMappingEntityProvider.SaveOrUpdateOpenShiftRequestMappingEntityAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllOpenShiftRequestMappingEntity)">
+            <summary>
+            Saves or updates an open shift request mapping to Azure table storage.
+            </summary>
+            <param name="entity">The open shift request mapping entity.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftRequestMappingEntityProvider.GetOpenShiftRequestMappingEntityByKronosReqIdAsync(System.String)">
+            <summary>
+            The method that returns the open shift request mapping searching
+            a Kronos Request ID.
+            </summary>
+            <param name="kronosReqId">The Kronos request ID.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftRequestMappingEntityProvider.GetOpenShiftRequestMappingEntityByOpenShiftRequestIdAsync(System.String)">
+            <summary>
+            The method that will get the open shift request mapping entity by the open shift request ID.
+            </summary>
+            <param name="openShiftRequestId">The Open Shift Request ID.</param>
+            <returns>A unit of execution that contains the AllOpenShiftRequestMappingEntity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftRequestMappingEntityProvider.GetOpenShiftRequestMappingEntityByOpenShiftIdAsync(System.String,System.String)">
+            <summary>
+            Method that will get the open shift request ID using the open shift ID.
+            </summary>
+            <param name="openShiftId">The Open Shift ID.</param>
+            <param name="openShiftReqId">The open shift request id.</param>
+            <returns>A unit of execution that contains the Open Shift Request entity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.OpenShiftRequestMappingEntityProvider.CheckOpenShiftRequestExistance(System.String)">
+            <summary>
+            Method to check for the existance of an open shift inside of the open shift request entity
+            mapping table.
+            </summary>
+            <param name="teamsOpenShiftId">Graph Open Shift ID.</param>
+            <returns>A unit of execution containing a boolean value indicating whether or not an open shift exists
+            in the open shift request mapping table.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider">
+            <summary>
+            This class implements all of the methods defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IShiftMappingEntityProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider"/> class.
+            </summary>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+            <param name="connectionString">The Azure table storage connection string.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider.GetShiftEntityAsync(System.String,System.String)">
+            <summary>
+            This method returns the necessary row(s) that are to have their row key properly updated with
+            the actual shift ID from MS Graph APIs post-OpenShiftRequest Approval.
+            </summary>
+            <param name="monthPartition">The month partition.</param>
+            <param name="rowKey">A "temp" row key.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider.SaveOrUpdateShiftMappingEntityAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity,System.String,System.String)">
+            <summary>
+            Saves or updates the shift mapping entity.
+            </summary>
+            <param name="entity">The shift mapping data.</param>
+            <param name="shiftId">The ShiftID to save or update.</param>
+            <param name="monthPartitionKey">Month Partition Value.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider.DeleteOrphanDataFromShiftMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsShiftMappingEntity)">
+            <summary>
+            Method to delete the orphan data from shifts mapping entity.
+            </summary>
+            <param name="entity">The mapping entity to be deleted.</param>
+            <returns>A unit of execution to say whether or not the delete happened successfully.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider.GetAllShiftMappingEntitiesInBatchAsync(System.Collections.Generic.IEnumerable{Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel},System.String,System.String,System.String)">
+            <summary>
+            Get all shift mapping entries from table using batch operation.
+            </summary>
+            <param name="processKronosUsersInBatchList">List of KronosUserModel.</param>
+            <param name="monthPartitionKey">Month Partition Value.</param>
+            <param name="queryStartDate">Query start date.</param>
+            <param name="queryEndDate">Query end date.</param>
+            <returns>A Task.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider.GetShiftMappingEntityByRowKeyAsync(System.String)">
+            <summary>
+            This method will return a shift mapping entity based upon the RowKey.
+            </summary>
+            <param name="tempShiftRowKey">The temporary shift RowKey.</param>
+            <returns>A unit of execution that contains the TeamsShiftMappingEntity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ShiftMappingEntityProvider.GetAllShiftMappingEntitiesInBatchAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel,System.String,System.String,System.String)">
+            <summary>
+            Gets all of the Shift Mapping Entities in a Batch manner.
+            </summary>
+            <param name="userModel">The User Model.</param>
+            <param name="monthPartitionKey">Month Partition Value.</param>
+            <param name="queryStartDate">Query start date.</param>
+            <param name="queryEndDate">Query end date.</param>
+            <returns>A unit of execution that contains a list of shift mapping entities.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider">
+            <summary>
+            This class implements methods that are defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ISwapShiftMappingEntityProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String,Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IAzureTableStorageHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider"/> class.
+            </summary>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+            <param name="connectionString">The Azure table storage connection string.</param>
+            <param name="azureTableStorageHelper">Azure helper class.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider.GetAllSwapShiftMappingEntitiesAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            Get all the time off mapping entities.
+            </summary>
+            <param name="kronosReqIds">Kronos req ids.</param>
+            <returns>List of time Off mapping entities.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider.GetKronosReqAsync(System.String)">
+            <summary>
+            Get all the time off mapping entities.
+            </summary>
+            <param name="swapShiftRedId">Teams Swap Shift Id.</param>
+            <returns>Swap Shift Enity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider.CheckShiftExistanceAsync(System.String)">
+            <summary>
+            Method to check for the existence of a shift.
+            </summary>
+            <param name="shiftId">Teams Shift Id.</param>
+            <returns>true if shift exists.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider.GetShiftDetailsAsync(System.String)">
+            <summary>
+            Method that will get the shift details.
+            </summary>
+            <param name="shiftId">The ID of the shift.</param>
+            <returns>A unit of execution that contains a TeamsShiftMappingEntity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider.AddOrUpdateSwapShiftMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.SwapShiftMappingEntity)">
+            <summary>
+            Adds an entity to SwapShiftMapping table.
+            </summary>
+            <param name="swapShiftMappingEntity">SwapShiftMappingEntity instance.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.SwapShiftMappingEntityProvider.GetPendingRequest">
+            <summary>
+            Get all the pending request entities.
+            </summary>
+            <returns>List of Swap Shift Enity.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider">
+            <summary>
+            This class implements all of the methods defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITeamDepartmentMappingProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.#ctor(System.String,Microsoft.ApplicationInsights.TelemetryClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider"/> class.
+            </summary>
+            <param name="connectionString">The Azure Table storage connection string.</param>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.GetTeamMappingForOrgJobPathAsync(System.String,System.String)">
+            <summary>
+            Retrieves a single TeamDepartmentMapping from Azure Table storage.
+            </summary>
+            <param name="workForceIntegrationId">WorkForceIntegration Id.</param>
+            <param name="orgJobPath">Kronos Org Job Path.</param>
+            <returns>A unit of execution that boxes a <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.ShiftsTeamDepartmentMappingEntity"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.SaveOrUpdateShiftsTeamDepartmentMappingAsync(Microsoft.Graph.Team,System.String,System.String,System.String)">
+            <summary>
+            Saving or updating a mapping between a Team in Shifts and Department in Kronos.
+            </summary>
+            <param name="shiftsTeamsDetails">Shifts team details fetched via Graph api calls.</param>
+            <param name="kronosDepartmentName">Department name fetched from Kronos.</param>
+            <param name="workforceIntegrationId">The Workforce Integration Id.</param>
+            <param name="tenantId">Tenant Id.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.GetMappedTeamDetailsAsync">
+            <summary>
+            Function that will return all of the teams that are mapped in Azure Table storage.
+            </summary>
+            <returns>A list of the mapped teams.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.GetMappedTeamToDeptsWithJobPathsAsync">
+            <summary>
+            This method is to make sure to get all the records from the TeamToDepartmentJobMappingEntity table.
+            </summary>
+            <returns>A list of TeamToDepartmentJobMappingEntity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.GetAllOrgJobPathsAsync">
+            <summary>
+            Method that will get all the org job paths.
+            </summary>
+            <returns>A list of org job paths.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.TeamsToDepartmentMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TeamsDepartmentMappingModel)">
+            <summary>
+            Method to save or update Teams to Department mapping.
+            </summary>
+            <param name="entity">Mapping entity reference.</param>
+            <returns>http status code representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.GetTeamDeptMappingDetailsAsync">
+            <summary>
+            Function that will return all of the teams and department that are
+            mapped in Azure Table storage.
+            </summary>
+            <returns>List of Team and Department mapping model.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TeamDepartmentMappingProvider.DeleteMappedTeamDeptDetailsAsync(System.String,System.String)">
+            <summary>
+            Method to delete teams and Department mapping.
+            </summary>
+            <param name="partitionKey">The partition key.</param>
+            <param name="rowKey">The row key.</param>
+            <returns>boolean value that indicates delete success.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffMappingEntityProvider">
+            <summary>
+            This class implements methods that are defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffMappingEntityProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffMappingEntityProvider.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffMappingEntityProvider"/> class.
+            </summary>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+            <param name="connectionString">The Azure table storage connection string.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffMappingEntityProvider.GetAllTimeOffMappingEntitiesAsync(System.Collections.Generic.IEnumerable{Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel},System.String)">
+            <summary>
+            Method to get all the time off mapping entities.
+            </summary>
+            <param name="processKronosUsersInBatchList">The batch of Kronos users.</param>
+            <param name="monthPartitionKey">The month partition key.</param>
+            <returns>A list of time off mapping entities that are contained in a unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffMappingEntityProvider.GetAllTimeOffMappingEntitiesAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.UserDetailsModel,System.String)">
+            <summary>
+            Get all the time off mapping entities.
+            </summary>
+            <param name="userModel">User in batch.</param>
+            <param name="monthPartitionKey">Month Partition.</param>
+            <returns>List of time Off mapping entities.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffReasonProvider">
+            <summary>
+            This class implements the methods defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffReasonProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffReasonProvider.#ctor(System.String,Microsoft.ApplicationInsights.TelemetryClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffReasonProvider"/> class.
+            </summary>
+            <param name="connectionString">The Azure table storage connection string.</param>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffReasonProvider.GetTimeOffReasonsAsync">
+            <summary>
+            Function that will return all of the configurations that are registered in Azure Table storage.
+            </summary>
+            <returns>A list of the configurations established.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffReasonProvider.FetchReasonsForTeamsAsync(System.String,System.String)">
+            <summary>
+            Fetch reasons associated with a team.
+            </summary>
+            <param name="teamsId">teams id.</param>
+            <param name="tenantId">tenant id of teams.</param>
+            <returns>List of reasons.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffReasonProvider.InitializeAsync(System.String)">
+            <summary>
+            Creates the Azure table if the table does not already exist.
+            </summary>
+            <param name="connectionString">The connection string for the Azure storage.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffReasonProvider.EnsureInitializedAsync">
+            <summary>
+            Having the necessary entities properly created.
+            </summary>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffRequestProvider">
+            <summary>
+            This class implements the methods defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.ITimeOffRequestProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffRequestProvider.#ctor(Microsoft.ApplicationInsights.TelemetryClient,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffRequestProvider"/> class.
+            </summary>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+            <param name="connectionString">The Azure table storage connection string.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.TimeOffRequestProvider.GetAllTimeOffReqMappingEntitiesAsync(System.String,System.String)">
+            <summary>
+            Method to get the TimeOffReqMappingEntities.
+            </summary>
+            <param name="monthPartitionKey">The month partition key.</param>
+            <param name="timeOffReqId">The TimeOffRequestId.</param>
+            <returns>A unit of execution that contains a List of <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.TimeOffMappingEntity"/>.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider">
+            <summary>
+            This class implements the methods defined in <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.IUserMappingProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider.#ctor(System.String,Microsoft.ApplicationInsights.TelemetryClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider"/> class.
+            </summary>
+            <param name="connectionString">The Azure Table storage connection string.</param>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider.GetAllMappedUserDetailsAsync">
+            <summary>
+            Function that will return all of the Users that are mapped in Azure Table storage.
+            </summary>
+            <returns>A list of the mapped Users.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider.GetUserMappingEntityAsyncNew(System.String,System.String)">
+            <summary>
+            Method to get a single user mapping entity.
+            </summary>
+            <param name="userAadObjectId">The AAD Object ID of the user.</param>
+            <param name="teamId">The TeamID that the user belongs to.</param>
+            <returns>A unit of execution that contains the UserMappingEntity.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider.KronosShiftUsersMappingAsync(Microsoft.Teams.Shifts.Integration.BusinessLogic.Models.AllUserMappingEntity)">
+            <summary>
+            Method to save or update the user mapping.
+            </summary>
+            <param name="entity">Mapping entity reference.</param>
+            <returns>http status code representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider.GetDistinctOrgJobPatAsync">
+            <summary>
+            Method to get distinct org job path.
+            </summary>
+            <returns>A list of distinct org job path.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider.DeleteMappedUserDetailsAsync(System.String,System.String)">
+            <summary>
+            Method to delete user mapping.
+            </summary>
+            <param name="partitionKey">The partition key.</param>
+            <param name="rowKey">The row key.</param>
+            <returns>boolean value that indicates delete success.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider.StoreOrUpdateEntityAsync(Microsoft.WindowsAzure.Storage.Table.TableEntity)">
+            <summary>
+            The actual operation of adding or updating a record in Azure Table storage.
+            </summary>
+            <param name="entity">The entity to add or update.</param>
+            <returns>A unit of execution that has the new record boxed in.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.Providers.UserMappingProvider.EnsureInitializedAsync">
+            <summary>
+            Having the necessary entities properly created.
+            </summary>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.QueueExtensions">
+            <summary>
+            Queue extension methods.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.Shifts.Integration.BusinessLogic.QueueExtensions.DequeueChunk``1(System.Collections.Generic.Queue{``0},System.Int32)">
+            <summary>
+            Dequeue an item from queue.
+            </summary>
+            <typeparam name="T">Specifies the type of elements in the queue.</typeparam>
+            <param name="queue">Incoming sequence.</param>
+            <param name="chunkSize">Lot size.</param>
+            <returns>IEnumerable.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.AddWorkForceIntegrationToSchedule">
+            <summary>
+              Looks up a localized string similar to AddWorkForceIntegrationToSchedule.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.DeleteWorkforceIntegrationAsync">
+            <summary>
+              Looks up a localized string similar to DeleteWorkforceIntegrationAsync.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.EnsureInitializedAsync">
+            <summary>
+              Looks up a localized string similar to EnsureInitializedAsync.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.FetchShiftTeamDetailsAsync">
+            <summary>
+              Looks up a localized string similar to FetchShiftTeamDetailsAsync.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.FetchShiftUserDetailsAsync">
+            <summary>
+              Looks up a localized string similar to FetchShiftUserDetailsAsync.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.GetKronosReqAsync">
+            <summary>
+              Looks up a localized string similar to GetKronosReqAsync.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.GetShiftEntityMappingByRowKeyAsync">
+            <summary>
+              Looks up a localized string similar to GetShiftEntityMappingByRowKeyAsync.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.InitializeAsync">
+            <summary>
+              Looks up a localized string similar to InitializeAsync.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Teams.Shifts.Integration.BusinessLogic.BusinessLogicResource.RegisterWorkforceIntegrationAsync">
+            <summary>
+              Looks up a localized string similar to RegisterWorkforceIntegrationAsync.
+            </summary>
+        </member>
+    </members>
+</doc>

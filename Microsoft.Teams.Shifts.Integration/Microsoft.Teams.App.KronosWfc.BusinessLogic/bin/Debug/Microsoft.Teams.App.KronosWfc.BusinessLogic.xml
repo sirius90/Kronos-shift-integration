@@ -1,0 +1,769 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Teams.App.KronosWfc.BusinessLogic</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFindLoadAll.HyperFindLoadAllActivity">
+            <summary>
+            Hyper Find Load All Activity class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFindLoadAll.HyperFindLoadAllActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFindLoadAll.HyperFindLoadAllActivity"/> class.
+            </summary>
+            <param name="telemetryClient">The mechanisms to capture telemetry.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFindLoadAll.HyperFindLoadAllActivity.CreateHyperFindRequest">
+            <summary>
+            Creates hyper find request.
+            </summary>
+            <returns>Request string.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFindLoadAll.HyperFindLoadAllActivity.ProcessResponse(System.String)">
+            <summary>
+            Process response class.
+            </summary>
+            <param name="strResponse">String response.</param>
+            <returns>Process response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFindLoadAll.IHyperFindLoadAllActivity">
+            <summary>
+            Hyper Find Load All Activity interface.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.JobAssignment.IJobAssignmentActivity">
+            <summary>
+            Job assignment activity interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.JobAssignment.IJobAssignmentActivity.GetJobAssignmentAsync(System.Uri,System.String,System.String,System.String)">
+            <summary>
+            Get Job Assignments.
+            </summary>
+            <param name="endPointUrl">End Point Url.</param>
+            <param name="personNumber">Person Number.</param>
+            <param name="tenantId">Tenant ID.</param>
+            <param name="jSession">J Session.</param>
+            <returns>Job Assignment response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.JobAssignment.JobAssignmentActivity">
+            <summary>
+            Job assignment activity class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.JobAssignment.JobAssignmentActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.JobAssignment.JobAssignmentActivity"/> class.
+            </summary>
+            <param name="telemetryClient">Having the telemetry capturing mechanism.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.JobAssignment.JobAssignmentActivity.GetJobAssignmentAsync(System.Uri,System.String,System.String,System.String)">
+            <summary>
+            Get Job Assignments.
+            </summary>
+            <param name="endPointUrl">End Point Url.</param>
+            <param name="personNumber">Person Number.</param>
+            <param name="tenantId">Tenant ID.</param>
+            <param name="jSession">J Session.</param>
+            <returns>Job Assignment response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.JobAssignment.JobAssignmentActivity.CreateJobAssignRequest(System.String)">
+            <summary>
+            Create job assignment request.
+            </summary>
+            <param name="personNumber">Person Number.</param>
+            <returns>job assign request.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.JobAssignment.JobAssignmentActivity.ProcessJobAssignResponse(System.String)">
+            <summary>
+            Process Job Assign Response.
+            </summary>
+            <param name="strResponse">Response string.</param>
+            <returns>Job Assignment Response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.ILogonActivity">
+            <summary>
+            Logon Activity Interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.ILogonActivity.LogonAsync(System.String,System.String,System.Uri)">
+            <summary>
+            Logon method.
+            </summary>
+            <param name="username">User details.</param>
+            <param name="password">The user password.</param>
+            <param name="endPointUrl">The Kronos Endpoint URL.</param>
+            <returns>User Response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.LogonActivity">
+            <summary>
+            Logon Activity class.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.LogonActivity.loginRequest">
+            <summary>
+            Login request.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.LogonActivity.#ctor(Microsoft.Teams.App.KronosWfc.Models.RequestEntities.Logon.Request,Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.LogonActivity" /> class.
+            </summary>
+            <param name="loginRequest">Login Request.</param>
+            <param name="telemetryClient">The telemetry mechanism.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.LogonActivity.LogonAsync(System.String,System.String,System.Uri)">
+            <summary>
+            This method calls the logOn api to log the user to Kronos.
+            </summary>
+            <param name="username">The user name string.</param>
+            <param name="password">The user password.</param>
+            <param name="endPointUrl">Kronos endpoint url.</param>
+            <returns>Response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.LogonActivity.CreateLogOnRequest(System.String,System.String)">
+            <summary>
+            Used to create xml logon request string.
+            </summary>
+            <param name="username">User request object.</param>
+            <param name="password">User password.</param>
+            <returns>Logon request xml string.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon.LogonActivity.ProcessResponse(System.String)">
+            <summary>
+            Read the xml response into Response object.
+            </summary>
+            <param name="strResponse">xml response string.</param>
+            <returns>Response object.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFind.HyperFindActivity">
+            <summary>
+            Hyper Find Activity class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFind.HyperFindActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFind.HyperFindActivity"/> class.
+            </summary>
+            <param name="telemetryClient">Having the telemetry capturing mechanism.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFind.HyperFindActivity.GetHyperFindQueryValuesAsync(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Returns all the home employees.
+            </summary>
+            <param name="endPointUrl">The Kronos WFC endpoint URL.</param>
+            <param name="tenantId">The TenantId.</param>
+            <param name="jSession">The jSession string.</param>
+            <param name="startDate">The startDate.</param>
+            <param name="endDate">The endDate.</param>
+            <param name="hyperFindQueryName">The name of the hyper find query.</param>
+            <param name="visibilityCode">The visibility code.</param>
+            <returns>A unit of execution that contains the type <see cref="T:Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind.Response"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFind.HyperFindActivity.CreateHyperFindRequest(System.String,System.String,System.String,System.String)">
+            <summary>
+            Creates hyper find request.
+            </summary>
+            <param name="startDate">Start Date.</param>
+            <param name="endDate">End Date.</param>
+            <param name="hyperFindQueryName">The name of the hyper find query.</param>
+            <param name="visibilityCode">The visibility code.</param>
+            <returns>Request string.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFind.HyperFindActivity.ProcessResponse(System.String)">
+            <summary>
+            Process response class.
+            </summary>
+            <param name="strResponse">String response.</param>
+            <returns>Process response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFind.IHyperFindActivity">
+            <summary>
+            Hyper Find Activity Interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.HyperFind.IHyperFindActivity.GetHyperFindQueryValuesAsync(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Returns all the home employees.
+            </summary>
+            <param name="endPointUrl">The Kronos WFC endpoint URL.</param>
+            <param name="tenantId">The TenantId.</param>
+            <param name="jSession">The jSession string.</param>
+            <param name="startDate">The startDate.</param>
+            <param name="endDate">The endDate.</param>
+            <param name="hyperFindQueryName">The name of the hyper find query.</param>
+            <param name="visibilityCode">The visibility code.</param>
+            <returns>A unit of execution that contains the type <see cref="T:Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind.Response"/>.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.IOpenShiftActivity">
+            <summary>
+            OpenShift Activity interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.IOpenShiftActivity.GetOpenShiftDetailsInBatchAsync(System.Uri,System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Fetch open shifts from Kronos in a batch manner.
+            </summary>
+            <param name="endpointUrl">The Kronos WFC API Endpoint.</param>
+            <param name="jSession">The jSession.</param>
+            <param name="orgJobPathsBatchList">The list of Org Job Paths.</param>
+            <param name="queryDateSpan">The query date span.</param>
+            <returns>A response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.IOpenShiftActivity.PostDraftOpenShiftRequestAsync(System.String,System.String,System.String,System.String,System.String,Microsoft.Teams.App.KronosWfc.Models.RequestEntities.OpenShift.OpenShiftRequest.OpenShiftObj,System.Uri)">
+            <summary>
+            Method to create the DraftOpenShift.
+            </summary>
+            <param name="tenantId">The TenantId.</param>
+            <param name="jSession">The jSession.</param>
+            <param name="openShiftObject">The OpenShiftObj.</param>
+            <param name="endPointUrl">The Kronos WFC API.</param>
+            <returns>A unit of execution that contains the response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.IOpenShiftActivity.PostOpenShiftRequestStatusUpdateAsync(System.String,System.String,System.String,System.String,System.Uri,System.String,System.String,System.String,System.String)">
+            <summary>
+            Method that will return the response post updating the status for an open shift request.
+            </summary>
+            <param name="personNumber">The Kronos Person Number.</param>
+            <param name="requestId">The request ID.</param>
+            <param name="queryDateSpan">The query date span.</param>
+            <param name="comment">The comment.</param>
+            <param name="endpointUrl">The Kronos API Endpoint.</param>
+            <param name="jSession">The jSession.</param>
+            <returns>A unit of execution that contains the response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.IOpenShiftActivity.GetApprovedOrDeclinedOpenShiftRequestsForUserAsync(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Method definition to get approved or denied open shift requests per user.
+            </summary>
+            <param name="endPointUrl">Kronos API Endpoint.</param>
+            <param name="jSession">The jSession.</param>
+            <param name="queryDateSpan">The query date span.</param>
+            <param name="kronosPersonNumber">The Kronos person number.</param>
+            <returns>A unit of execution.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity">
+            <summary>
+            This class implements methods that are defined in <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.IOpenShiftActivity"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity"/> class.
+            </summary>
+            <param name="telemetryClient">The mechanisms to capture telemetry.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.GetApprovedOrDeclinedOpenShiftRequestsForUserAsync(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Fecth open shift request details for displaying history.
+            </summary>
+            <param name="endPointUrl">The Kronos WFC endpoint URL.</param>
+            <param name="jSession">JSession.</param>
+            <param name="queryDateSpan">QueryDateSpan string.</param>
+            <param name="kronosPersonNumber">The Kronos Person Number.</param>
+            <returns>Request details response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.PostDraftOpenShiftRequestAsync(System.String,System.String,System.String,System.String,System.String,Microsoft.Teams.App.KronosWfc.Models.RequestEntities.OpenShift.OpenShiftRequest.OpenShiftObj,System.Uri)">
+            <summary>
+            Method that will have the create the DraftOpenShift.
+            </summary>
+            <param name="tenantId">The TenantId.</param>
+            <param name="jSession">The jSession.</param>
+            <param name="obj">The Open Shift object.</param>
+            <param name="endPointUrl">The Kronos API endpoint.</param>
+            <returns>A unit of execution that contains a response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.PostOpenShiftRequestStatusUpdateAsync(System.String,System.String,System.String,System.String,System.Uri,System.String,System.String,System.String,System.String)">
+            <summary>
+            Posts the status update for an Open Shift Request from DRAFT to SUBMITTED such that the request shows in the Request Manager.
+            </summary>
+            <param name="personNumber">The Kronos Person Number.</param>
+            <param name="requestId">The request Id.</param>
+            <param name="queryDateSpan">The query date span.</param>
+            <param name="comment">The comment to apply.</param>
+            <param name="endpointUrl">The Kronos API endpoint.</param>
+            <param name="jSession">The jSession token.</param>
+            <returns>A task that contains a type of <see cref="T:Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.OpenShiftRequest.Response"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.GetOpenShiftDetailsInBatchAsync(System.Uri,System.String,System.String,System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Gets the batch response for the batch open shift request.
+            </summary>
+            <param name="endpointUrl">Kronos WFC API Endpoint.</param>
+            <param name="jSession">The Kronos jSession.</param>
+            <param name="orgJobPathsBatchList">The batch of Org Job Paths.</param>
+            <param name="queryDateSpan">The query date span.</param>
+            <returns>A response object that's part of a unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.ProcessCreateDraftOpenShiftResponse(System.String)">
+            <summary>
+            Method that will process the SwapShiftDraftResponse.
+            </summary>
+            <param name="strResponse">The response string.</param>
+            <returns>A response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.ProcessOpenShiftBatchResponse(System.String)">
+            <summary>
+            The method that converts a response string to the response object.
+            </summary>
+            <param name="strResponse">The SOAP Response string.</param>
+            <returns>A model that is type of <see cref="T:Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.OpenShift.Batch.Response"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.CreateOpenShiftDraftRequest(Microsoft.Teams.App.KronosWfc.Models.RequestEntities.OpenShift.OpenShiftRequest.OpenShiftObj)">
+            <summary>
+            Method to create the DraftOpenShift.
+            </summary>
+            <param name="obj">The OpenShift object.</param>
+            <returns>The XML string.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.CreateOpenShiftRequestStatusUpdate(System.String,System.String,System.String,System.String)">
+            <summary>
+            Method to create the XML string for updating the OpenShift Request in Kronos from DRAFT to SUBMITTED.
+            </summary>
+            <param name="personNumber">The Kronos Person Number.</param>
+            <param name="reqId">The RequestId.</param>
+            <param name="querySpan">The query date span.</param>
+            <param name="comment">The comment.</param>
+            <returns>The XML string of the update status request.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.CreateOpenShiftsApprovedDeclinedRequest(System.String,System.String)">
+            <summary>
+            Fetch TimeOff request.
+            </summary>
+            <param name="queryDateSpan">The queryDateSpan string.</param>
+            <param name="personNumber">The Kronos Person Number.</param>
+            <returns>XML request string.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.OpenShift.OpenShiftActivity.CreateOpenShiftDetailsBatchRequest(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            This method builds the request XML for getting the open shifts in a batch manner.
+            </summary>
+            <param name="queryDateSpan">The query date span.</param>
+            <param name="orgJobPaths">The list of org job paths.</param>
+            <returns>The XML Request string.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.PayCodes.IPayCodeActivity">
+            <summary>
+            This interface used to fetch paycodes from Kronos.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.PayCodes.IPayCodeActivity.FetchPayCodesAsync(System.Uri,System.String)">
+            <summary>
+            Fetch paycodes mapped.
+            </summary>
+            <param name="endPointUrl">Kronos endpoint url.</param>
+            <param name="jSession">Kronos session.</param>
+            <returns>List of Kronos paycodes.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.PayCodes.PayCodeActivity">
+            <summary>
+            This class is used to fetch kronos payCodes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.PayCodes.PayCodeActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.PayCodes.PayCodeActivity"/> class.
+            Initialize PayCodeActivity.
+            </summary>
+            <param name="telemetryClient">Telemetry initialize.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.PayCodes.PayCodeActivity.FetchPayCodesAsync(System.Uri,System.String)">
+            <summary>
+            Fetch kronos PayCodes.
+            </summary>
+            <param name="endPointUrl">Kronos url.</param>
+            <param name="jSession">Kronos session.</param>
+            <returns>List of kronos paycodes.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.PayCodes.PayCodeActivity.ProcessResponse(System.String)">
+            <summary>
+            Read the xml response into Response object.
+            </summary>
+            <param name="strResponse">xml response string.</param>
+            <returns>Response object.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity">
+            <summary>
+            Create TimeOff Activity Class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity"/> class.
+            </summary>
+            <param name="telemetryClient">The mechanisms to capture telemetry.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity.SubmitTimeOffRequestAsync(System.String,System.String,System.String,System.String,System.String,System.Uri)">
+            <summary>
+            Submit time of request which is in draft.
+            </summary>
+            <param name="jSession">jSession object.</param>
+            <param name="personNumber">Person number.</param>
+            <param name="reqId">RequestId of the time off request.</param>
+            <param name="queryStartDate">Query Start.</param>
+            <param name="queryEndDate">Query End.</param>
+            <param name="endPointUrl">Endpoint url for Kronos.</param>
+            <returns>Time of submit response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity.TimeOffRequestAsync(System.String,System.DateTimeOffset,System.DateTimeOffset,System.String,System.String,System.Uri,System.TimeZoneInfo)">
+            <summary>
+            Send time off request to Kronos API and get response.
+            </summary>
+            <param name="jSession">J Session.</param>
+            <param name="startDateTime">Start Date.</param>
+            <param name="endDateTime">End Date.</param>
+            <param name="personNumber">Person Number.</param>
+            <param name="reason">Reason string.</param>
+            <param name="endPointUrl">Endpoint url for Kronos.</param>
+            <param name="kronosTimeZone">The time zone for Kronos WFC.</param>
+            <returns>Time of add response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity.CalculateTimeOffPeriod(System.DateTimeOffset,System.DateTimeOffset,System.String,System.Collections.Generic.List{Microsoft.Teams.App.KronosWfc.Models.RequestEntities.ShiftsToKronos.AddRequest.TimeOffPeriod},System.TimeZoneInfo)">
+            <summary>
+            This method will calculate the necessary duration of the time off.
+            </summary>
+            <param name="startDateTime">The start date/time stamp for the time off request.</param>
+            <param name="endDateTime">The end date/time stamp for the time off request.</param>
+            <param name="reason">The time off reason from Shifts.</param>
+            <param name="timeOffPeriod">The list of Time Off periods.</param>
+            <param name="kronosTimeZone">The time zone of Kronos WFC.</param>
+            <returns>A string that represents the duration period.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity.CreateSubmitTimeOffRequest(System.String,System.String,System.String)">
+            <summary>
+            Create XML to submit time off request which is in draft.
+            </summary>
+            <param name="personNumber">Person Number.</param>
+            <param name="reqId">RequestId of the time off request.</param>
+            <param name="querySpan">Query Span.</param>
+            <returns>Submit time off request.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity.ProcessSubmitResponse(System.String)">
+            <summary>
+            Deserialize xml response for submit request operation.
+            </summary>
+            <param name="strResponse">Response string.</param>
+            <returns>Process submit response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity.CreateAddTimeOffRequest(System.DateTimeOffset,System.DateTimeOffset,System.String,System.String,System.TimeZoneInfo)">
+            <summary>
+            Create XML to add time off request.
+            </summary>
+            <param name="startDateTime">Start date.</param>
+            <param name="endDateTime">End Date.</param>
+            <param name="personNumber">Person number.</param>
+            <param name="reason">Reason string.</param>
+            <param name="kronosTimeZone">The time zone of Kronos WFC.</param>
+            <returns>Add time of request.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.CreateTimeOffActivity.ProcessResponse(System.String)">
+            <summary>
+            Read the xml response into Response object.
+            </summary>
+            <param name="strResponse">xml response string.</param>
+            <returns>Response object.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.ICreateTimeOffActivity">
+            <summary>
+            Create TimeOff Activity Interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.ICreateTimeOffActivity.SubmitTimeOffRequestAsync(System.String,System.String,System.String,System.String,System.String,System.Uri)">
+            <summary>
+            Submit time of request which is in draft.
+            </summary>
+            <param name="jSession">jSession object.</param>
+            <param name="personNumber">Person number.</param>
+            <param name="reqId">RequestId of the time off request.</param>
+            <param name="queryStartDate">Query Start.</param>
+            <param name="queryEndDate">Query End.</param>
+            <param name="endPointUrl">Endpoint url for Kronos.</param>
+            <returns>Time of submit response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.ShiftsToKronos.CreateTimeOff.ICreateTimeOffActivity.TimeOffRequestAsync(System.String,System.DateTimeOffset,System.DateTimeOffset,System.String,System.String,System.Uri,System.TimeZoneInfo)">
+            <summary>
+            Send time off request to Kronos API and get response.
+            </summary>
+            <param name="jSession">J Session.</param>
+            <param name="startDateTime">Start Date.</param>
+            <param name="endDateTime">End Date.</param>
+            <param name="personNumber">Person Number.</param>
+            <param name="reason">Reason string.</param>
+            <param name="endPointUrl">Endpoint url for Kronos.</param>
+            <param name="kronosTimeZone">The time zone for Kronos WFC API.</param>
+            <returns>Time of add response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.ISwapShiftActivity">
+            <summary>
+            The Swap Shift Activity interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.ISwapShiftActivity.GetSwapShiftRequestDetailsAsync(System.Uri,System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Fecth time off request details for displaying history.
+            </summary>
+            <param name="endPointUrl">The Kronos WFC endpoint URL.</param>
+            <param name="jSession">JSession.</param>
+            <param name="queryDateSpan">Date range for querying Kronos.</param>
+            <param name="personNumbers">Person number who created request.</param>
+            <param name="statusName">Status of request.</param>
+            <returns>Request details response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.ISwapShiftActivity.DraftSwapShiftAsync(System.String,Microsoft.Teams.App.KronosWfc.Models.RequestEntities.SwapShift.SwapShiftObj,System.String)">
+            <summary>
+            The method to post a SwapShift request in a draft state.
+            </summary>
+            <param name="jSession">The JSession (Kronos "token").</param>
+            <param name="swapShiftobj">The SwapShift Object.</param>
+            <param name="kronosApiEndpoint">The Kronos API Endpoint.</param>
+            <returns>A response that is boxed in a unit of execution.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.ISwapShiftActivity.SubmitSwapShiftAsync(System.String,System.String,System.String,System.String,System.String,System.Uri)">
+            <summary>
+            This method definition will perform the action of submitting the SwapShift.
+            </summary>
+            <param name="jSession">The JSession (Kronos "token").</param>
+            <param name="personNumber">The person number.</param>
+            <param name="reqId">The SwapShift request ID.</param>
+            <param name="querySpan">The query date span for the swap shift request.</param>
+            <param name="comment">The comment to apply for the submission - if there is any comment.</param>
+            <param name="endpointUrl">The Kronos WFC API Endpoint URL.</param>
+            <returns>A unit of execution that contains a response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.ISwapShiftActivity.SubmitApprovalAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.Uri)">
+            <summary>
+            This method definition will submit the approval.
+            </summary>
+            <param name="jSession">The JSession (Kronos "token").</param>
+            <param name="reqId">The SwapShift request ID.</param>
+            <param name="personNumber">The Kronos person number.</param>
+            <param name="status">The status of the SwapShift request.</param>
+            <param name="querySpan">The query date span.</param>
+            <param name="comment">The comment to apply, if any comment is applicable.</param>
+            <param name="endpointUrl">The Kronos WFC API Endpoint URL.</param>
+            <returns>A unit of execution that contains a response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity">
+            <summary>
+            This class implements all the methods that are defined in <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.ISwapShiftActivity"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity"/> class.
+            </summary>
+            <param name="telemetryClient">ApplicationInsights DI.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.GetSwapShiftRequestDetailsAsync(System.Uri,System.String,System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Fecth swap shift request details for displaying history.
+            </summary>
+            <param name="endPointUrl">The Kronos WFC endpoint URL.</param>
+            <param name="jSession">JSession.</param>
+            <param name="queryDateSpan">QueryDateSpan string.</param>
+            <param name="personNumbers">List of person numbers whose request is approved.</param>
+            <param name="statusName">Request status name.</param>
+            <returns>Request details response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.DraftSwapShiftAsync(System.String,Microsoft.Teams.App.KronosWfc.Models.RequestEntities.SwapShift.SwapShiftObj,System.String)">
+            <summary>
+            The method to create the Swap Shift Request in Draft state.
+            </summary>
+            <param name="jSession">The jSession.</param>
+            <param name="obj">The input SwapShiftObj.</param>
+            <param name="apiEndpoint">The Kronos API Endpoint.</param>
+            <returns>A unit of execution that contains the response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.SubmitSwapShiftAsync(System.String,System.String,System.String,System.String,System.String,System.Uri)">
+            <summary>
+            The method to post a SwapShift request in a offered state.
+            </summary>
+            <param name="jSession">Kronos session.</param>
+            <param name="personNumber">The Kronos personNumber.</param>
+            <param name="reqId">The reqId of swap shift request.</param>
+            <param name="querySpan">The querySpan.</param>
+            <param name="comment">The comment for request.</param>
+            <param name="endpointUrl">Endpoint Kronos URL.</param>
+            <returns>request to send to Kronos.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.SubmitApprovalAsync(System.String,System.String,System.String,System.String,System.String,System.String,System.Uri)">
+            <summary>
+            The method to post a SwapShift request in an offered state.
+            </summary>
+            <param name="jSession">The JSession (Kronos "token").</param>
+            <param name="reqId">The SwapShift Request ID.</param>
+            <param name="personNumber">The Kronos Person Number.</param>
+            <param name="status">The status to update.</param>
+            <param name="querySpan">The query date span.</param>
+            <param name="comment">The comment to be applied wherever applicable.</param>
+            <param name="endpointUrl">The Kronos WFC API Endpoint URL.</param>
+            <returns>A unit of execution that contains the response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.ProcessSwapShiftApproved(System.String)">
+            <summary>
+            Processes the response for the approve SwapShift.
+            </summary>
+            <param name="strResponse">The incoming response XML string.</param>
+            <returns>A response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.CreateSwapShiftDraftRequest(Microsoft.Teams.App.KronosWfc.Models.RequestEntities.SwapShift.SwapShiftObj)">
+            <summary>
+            This method will create the XML request string for a Swap Shift Request.
+            </summary>
+            <param name="swapShiftObj">The current swap shift object.</param>
+            <returns>A string that represents the XML request.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.ProcessSwapShiftDraftResponse(System.String)">
+            <summary>
+            This method will process the response after a draft request has been submitted.
+            </summary>
+            <param name="strResponse">The response string.</param>
+            <returns>A response object is returned.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.CreateSwapShiftSubmitRequest(System.String,System.String,System.String,System.String)">
+            <summary>
+            The method to create a SwapShift request in a offered state.
+            </summary>
+            <param name="personNumber">The Kronos personNumber.</param>
+            <param name="reqId">The reqId of swap shift request.</param>
+            <param name="querySpan">The querySpan.</param>
+            <param name="comment">The comment for request.</param>
+            <returns>Request to send to Kronos.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.CreateApprovedSwapShiftRequests(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Create approved SwapShift requests for a list of people.
+            </summary>
+            <param name="personNumbers">List of person numbers whose request is approved.</param>
+            <param name="queryDateSpan">QueryDateSpan string.</param>
+            <param name="statusName">Request statusName.</param>
+            <returns>XML request string.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.ProcessSwapShiftResponse(System.String)">
+            <summary>
+            Process response for request details.
+            </summary>
+            <param name="strResponse">Response received from request for TOR detail.</param>
+            <returns>Response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.SwapShift.SwapShiftActivity.CreateApprovalRequest(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            This method creates the approval request.
+            </summary>
+            <param name="personNumber">The Kronos Person Number.</param>
+            <param name="reqId">The SwapShift Request ID.</param>
+            <param name="status">The incoming status.</param>
+            <param name="querySpan">The query date span.</param>
+            <param name="comment">The comment to apply if applicable.</param>
+            <returns>A string that represents the request XML.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.TimeOff.ITimeOffActivity">
+            <summary>
+            TimeOff Activity Interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.TimeOff.ITimeOffActivity.GetTimeOffRequestDetailsByBatchAsync(System.Uri,System.String,System.String,System.Collections.Generic.List{Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind.ResponseHyperFindResult})">
+            <summary>
+            Fecth time off request details for displaying history.
+            </summary>
+            <param name="endPointUrl">The Kronos WFC endpoint URL.</param>
+            <param name="jSession">JSession.</param>
+            <param name="queryDateSpan">QueryDateSpan string.</param>
+            <param name="employees">Employees who created request.</param>
+            <returns>Request details response object.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.TimeOff.TimeOffActivity">
+            <summary>
+            TimeOff Activity Class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.TimeOff.TimeOffActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.TimeOff.TimeOffActivity"/> class.
+            </summary>
+            <param name="telemetryClient">The mechanisms to capture telemetry.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.TimeOff.TimeOffActivity.GetTimeOffRequestDetailsByBatchAsync(System.Uri,System.String,System.String,System.Collections.Generic.List{Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind.ResponseHyperFindResult})">
+            <summary>
+            Fecth time off request details for displaying history.
+            </summary>
+            <param name="endPointUrl">The Kronos WFC endpoint URL.</param>
+            <param name="jSession">JSession.</param>
+            <param name="queryDateSpan">QueryDateSpan string.</param>
+            <param name="employees">Employees who created request.</param>
+            <returns>Request details response object.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.TimeOff.TimeOffActivity.FetchTimeOffRequestsByBatch(System.Collections.Generic.List{Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind.ResponseHyperFindResult},System.String)">
+            <summary>
+            Fetch TimeOff request.
+            </summary>
+            <param name="employees">Employees who created request.</param>
+            <param name="queryDateSpan">QueryDateSpan string.</param>
+            <returns>XML request string.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.TimeOff.TimeOffActivity.ProcessTimeOffResponse(System.String)">
+            <summary>
+            Process response for request details.
+            </summary>
+            <param name="strResponse">Response received from request for TOR detail.</param>
+            <returns>Response object.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts.IUpcomingShiftsActivity">
+            <summary>
+            Upcoming shift activity interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts.IUpcomingShiftsActivity.ShowUpcomingShiftsInBatchAsync(System.Uri,System.String,System.String,System.String,System.Collections.Generic.List{Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind.ResponseHyperFindResult})">
+            <summary>
+            Shows upcoming shifts.
+            </summary>
+            <param name="endPointUrl">end Point Url.</param>
+            <param name="jSession">jSession object.</param>
+            <param name="startDate">Start Date.</param>
+            <param name="endDate">End Date.</param>
+            <param name="employees">Employees shift data.</param>
+            <returns>Upcoming shifts response.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts.UpcomingShiftsActivity">
+            <summary>
+            Upcoming shifts activity class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts.UpcomingShiftsActivity.#ctor(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.Teams.App.KronosWfc.Service.IApiHelper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts.UpcomingShiftsActivity"/> class.
+            </summary>
+            <param name="telemetryClient">Having the telemetry capturing mechanism.</param>
+            <param name="apiHelper">API helper to fetch tuple response by post soap requests.</param>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts.UpcomingShiftsActivity.ShowUpcomingShiftsInBatchAsync(System.Uri,System.String,System.String,System.String,System.Collections.Generic.List{Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind.ResponseHyperFindResult})">
+            <summary>
+            This method retrieves all the upcoming shifts.
+            </summary>
+            <param name="endPointUrl">The Kronos API endpoint.</param>
+            <param name="jSession">The Kronos "token".</param>
+            <param name="startDate">The query start date.</param>
+            <param name="endDate">The query end date.</param>
+            <param name="employees">The list of users to query.</param>
+            <returns>A unit of execution that contains the response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts.UpcomingShiftsActivity.ProcessResponse(System.String)">
+            <summary>
+            Read the xml response into Response object.
+            </summary>
+            <param name="strResponse">xml response string.</param>
+            <returns>Response object.</returns>
+        </member>
+    </members>
+</doc>

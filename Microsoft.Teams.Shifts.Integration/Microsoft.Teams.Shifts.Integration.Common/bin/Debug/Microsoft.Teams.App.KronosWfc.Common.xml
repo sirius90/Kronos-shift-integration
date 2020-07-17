@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Teams.App.KronosWfc.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Teams.App.KronosWfc.Common.ApiConstants">
+            <summary>
+            API Constants class.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.SoapEnvClose">
+            <summary>
+            Used as an closing braces to send post soap requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.SoapAction">
+            <summary>
+            Used as headers to perform post xml requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.System">
+            <summary>
+            Defines the object for creating Log on requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.LogonAction">
+            <summary>
+            Defines the action for creating Log on requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Response">
+            <summary>
+            Defines the local name of the xml response.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.LoadAction">
+            <summary>
+            Defines the Action to create Load requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.RunQueryAction">
+            <summary>
+            Defines the Action to create RunQuery requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.LoadAllQueries">
+            <summary>
+            Defines the Action to create LoadAllQueries requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.PublicVisibilityCode">
+            <summary>
+            Defines the visibility status for Kronos side.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Success">
+            <summary>
+            Defines the success status from Kronos side.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Failure">
+            <summary>
+            Defines the failure status from Kronos side.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.UserNotLoggedInError">
+            <summary>
+            Defines UserNotLoggedInError Code.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.RetrieveWithDetails">
+            <summary>
+            Defines the Action to create requests with details.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.LoadOpenShifts">
+            <summary>
+            Defines the Action to create open shift requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.SubmitRequests">
+            <summary>
+            Defines the request status for time off.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.AddRequests">
+            <summary>
+            Defines the Action to create submit requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Pending">
+            <summary>
+            Defines the pending status when migrating the data from Kronos to Shifts.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.ShiftsPending">
+            <summary>
+            Defines the pending status when migrating the data from Shifts to Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.ShiftsApproved">
+            <summary>
+            Defines the approved status when migrating the data from Shifts to Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.ShiftsDeclined">
+            <summary>
+            Defines the declined status when migrating the data from Shifts to Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.UpdateStatus">
+            <summary>
+            Defines string for updating the status.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.OpenShiftRequest">
+            <summary>
+            Defines string for the OpenShiftRequest.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Retrieve">
+            <summary>
+            Defines the action string for an API action.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Offered">
+            <summary>
+            Defines the status to be changed from submitted to offered in Kronos side.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Submitted">
+            <summary>
+            Defines the submitted status to fetch submitted entries from Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.ApprovedStatus">
+            <summary>
+            Defines the approved status to fetch approved entries from Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Refused">
+            <summary>
+            Defines the Refused status to fetch declined entries from Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Retract">
+            <summary>
+            Defines the Retract status to fetch deleted entries from Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Declined">
+            <summary>
+            Defines the color to render for Open Shifts when migrating the data from Kronos to Shifts.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.ShiftsRecipient">
+            <summary>
+            Defines the recipient assigned for Shifts to Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.ShiftsManager">
+            <summary>
+            Defines the recipient assigned for Shifts to Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.LoadAllPayCodes">
+            <summary>
+            Defines the Laod all payloads status.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Retracted">
+            <summary>
+            Defines the Retracted status when fetching deleted data from Kronos.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.Manager">
+            <summary>
+            Defines the Assigned To status when migrating the data from Kronos to Shifts.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.TOR">
+            <summary>
+            Defines the Request for property for global time off Item.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.FullDayDuration">
+            <summary>
+            Defines the full day duration of time off.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.HoursDuration">
+            <summary>
+            Defines the hours duration of time off.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.SwapShiftRequest">
+            <summary>
+            Defines string for the SwapShiftRequest.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.SwapShiftComment">
+            <summary>
+            Defines swap Shift comment if Kronos comment is null.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.SwapShiftNoteText">
+            <summary>
+            Defines swap Shift comment if Kronos comment is null.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.KronosAcceptableDateFormat">
+            <summary>
+            Defines Kronos acceptable date format.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.SwapShiftCancelled">
+            <summary>
+            Defines the status when FLW1 cancels the Swap Shift Request.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.KronosFailedLogin">
+            <summary>
+            Error message when Kronos login is failed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.AccessTokenUri">
+            <summary>
+            Error message when Kronos login is failed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.AuthorizationToken">
+            <summary>
+            Error message when Kronos login is failed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Teams.App.KronosWfc.Common.ApiConstants.SoapEnvOpen">
+            <summary>
+            Used as an opening braces to send post soap requests.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.Common.XmlConvertHelper">
+            <summary>
+            XML Convert helper class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.Common.XmlConvertHelper.XmlSerialize``1(``0)">
+            <summary>
+            Generic method to serialize data into XML.
+            </summary>
+            <typeparam name="T">Generic type.</typeparam>
+            <param name="entity">Generic type parameter.</param>
+            <returns>Serialized string.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.Common.XmlConvertHelper.DeserializeObject``1(System.String)">
+            <summary>
+            Generic method to deserialize XML back to object.
+            </summary>
+            <typeparam name="T">Generic type.</typeparam>
+            <param name="xml">XML string input.</param>
+            <returns>Generic object.</returns>
+        </member>
+    </members>
+</doc>

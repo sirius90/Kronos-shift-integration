@@ -1,0 +1,10 @@
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\netstandard2.0\Microsoft.Teams.Shifts.Encryption.deps.json
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\netstandard2.0\Microsoft.Teams.Shifts.Encryption.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\netstandard2.0\Microsoft.Teams.Shifts.Encryption.pdb
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\netstandard2.0\Encryption_Multi_Framework.csproj.CoreCompileInputs.cache
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\netstandard2.0\bondcodegen.done
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\netstandard2.0\bonddefaultcodegen.in
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\netstandard2.0\EncryptionManager_types.cs
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\netstandard2.0\AesCbcHmacEncryptor_types.cs
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\netstandard2.0\Microsoft.Teams.Shifts.Encryption.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\netstandard2.0\Microsoft.Teams.Shifts.Encryption.pdb

@@ -1,0 +1,3 @@
+#Ran codegen on the following files:
+EncryptionManager.bond
+Encryptors\AesCbcHmacEncryptor.bond

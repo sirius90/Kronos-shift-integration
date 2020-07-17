@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Teams.App.KronosWfc.Service</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Teams.App.KronosWfc.Service.ApiHelper">
+            <summary>
+            API helper Class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.Service.ApiHelper.SendSoapPostRequestAsync(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Send Soap Post request.
+            </summary>
+            <param name="endpointUrl">End point URL.</param>
+            <param name="soapEnvOpen">Soap ENv open.</param>
+            <param name="reqXml">Request XML.</param>
+            <param name="soapEnvClose">Soap Env Close.</param>
+            <param name="jSession">Session Id.</param>
+            <returns>Soap request response.</returns>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.Service.ApiHelper.PostXmlRequestAsync(System.Uri,System.String,System.String,System.String,System.String)">
+            <summary>
+            Post XMl request.
+            </summary>
+            <param name="baseUrl">Base URL.</param>
+            <param name="xmlString">XML string.</param>
+            <param name="jSession">Session Id.</param>
+            <returns>Response message.</returns>
+        </member>
+        <member name="T:Microsoft.Teams.App.KronosWfc.Service.IApiHelper">
+            <summary>
+            API Helper interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Teams.App.KronosWfc.Service.IApiHelper.SendSoapPostRequestAsync(System.Uri,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends SOAP post request.
+            </summary>
+            <param name="endpointUrl">Endpoint URL.</param>
+            <param name="soapEnvOpen">SOAP env open.</param>
+            <param name="reqXml">request XML.</param>
+            <param name="soapEnvClose">Soap Env Close.</param>
+            <param name="jSession">Session Id.</param>
+            <returns>Soap Post response.</returns>
+        </member>
+    </members>
+</doc>

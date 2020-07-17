@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "gumJkjzEvjwAWU5iUlVyAmdegg9F2ZXDxxFSYBnLEYvqEwsxkGSyoC6fnMPu7IbP5NYZ6LMhSZBvaRP8wP7yfw==",
+  "success": true,
+  "projectFilePath": "C:\\githubclone\\Kronos-Shifts-Connector\\Microsoft.Teams.Shifts.Integration\\Encryption\\Encryption_Multi_Framework.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\bond.core.csharp\\8.0.0\\bond.core.csharp.8.0.0.nupkg.sha512",
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\bond.csharp\\8.0.0\\bond.csharp.8.0.0.nupkg.sha512",
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\bond.runtime.csharp\\8.0.0\\bond.runtime.csharp.8.0.0.nupkg.sha512",
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\microsoft.codeanalysis.fxcopanalyzers\\2.9.8\\microsoft.codeanalysis.fxcopanalyzers.2.9.8.nupkg.sha512",
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\microsoft.codeanalysis.versioncheckanalyzer\\2.9.8\\microsoft.codeanalysis.versioncheckanalyzer.2.9.8.nupkg.sha512",
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\microsoft.codequality.analyzers\\2.9.8\\microsoft.codequality.analyzers.2.9.8.nupkg.sha512",
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\microsoft.netcore.analyzers\\2.9.8\\microsoft.netcore.analyzers.2.9.8.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\microsoft.netframework.analyzers\\2.9.8\\microsoft.netframework.analyzers.2.9.8.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\jose.l.garza\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

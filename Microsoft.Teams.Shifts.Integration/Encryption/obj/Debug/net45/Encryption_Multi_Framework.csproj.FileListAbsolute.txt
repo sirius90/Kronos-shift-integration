@@ -1,0 +1,17 @@
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\net45\Microsoft.Teams.Shifts.Encryption.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\net45\Microsoft.Teams.Shifts.Encryption.pdb
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\net45\Bond.Attributes.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\net45\Bond.IO.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\net45\Bond.Reflection.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\net45\Bond.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\net45\Bond.JSON.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\bin\Debug\net45\Newtonsoft.Json.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\Encryption_Multi_Framework.csprojAssemblyReference.cache
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\Encryption_Multi_Framework.csproj.CoreCompileInputs.cache
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\bondcodegen.done
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\bonddefaultcodegen.in
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\EncryptionManager_types.cs
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\AesCbcHmacEncryptor_types.cs
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\Encryption_Multi_Framework.csproj.CopyComplete
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\Microsoft.Teams.Shifts.Encryption.dll
+C:\githubclone\Kronos-Shifts-Connector\Microsoft.Teams.Shifts.Integration\Encryption\obj\Debug\net45\Microsoft.Teams.Shifts.Encryption.pdb
