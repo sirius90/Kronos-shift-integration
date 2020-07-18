@@ -28,6 +28,8 @@ namespace Microsoft.Teams.App.KronosWfc.Service
         /// <param name="reqXml">Request XML.</param>
         /// <param name="soapEnvClose">Soap Env Close.</param>
         /// <param name="jSession">Session Id.</param>
+        /// <param name="WfmAuthEndpoint">Endpoint address for apigee token.</param>
+        /// <param name="WfmAuthEndpointToken">Auth token.</param>
         /// <returns>Soap request response.</returns>
         public async Task<Tuple<string, string>> SendSoapPostRequestAsync(
             Uri endpointUrl,
@@ -36,8 +38,7 @@ namespace Microsoft.Teams.App.KronosWfc.Service
             string soapEnvClose,
             string jSession,
             string WfmAuthEndpoint = ApiConstants.AccessTokenUri,
-            string WfmAuthEndpointToken = ApiConstants.AuthorizationToken
-            )
+            string WfmAuthEndpointToken = ApiConstants.AuthorizationToken)
         {
             string soapString = $"{soapEnvOpen}{reqXml}{soapEnvClose}";
 
@@ -63,7 +64,7 @@ namespace Microsoft.Teams.App.KronosWfc.Service
         /// <returns>Response message.</returns>
         private async Task<HttpResponseMessage> PostXmlRequestAsync(Uri baseUrl, string WfmAuthEndpoint, string WfmAuthEndpointToken, string xmlString, string jSession)
         {
-            var authToken = GetAuthToken(WfmAuthEndpoint, WfmAuthEndpointToken).ToString();
+            var authToken = GetAuthToken(WfmAuthEndpoint, WfmAuthEndpointToken).Result;
 
             if (string.IsNullOrEmpty(jSession))
             {
@@ -99,19 +100,19 @@ namespace Microsoft.Teams.App.KronosWfc.Service
             }
         }
 
-        private static async Task<string> GetAuthToken(string WfmAuthEndpoint, string WfmAuthEndpointToken)
+        private static async Task<string> GetAuthToken(string wfmAuthEndpoint, string wfmAuthEndpointToken)
         {
-            Uri baseUrl = new Uri(WfmAuthEndpoint);
+            Uri baseUrl = new Uri(wfmAuthEndpoint);
 
             using (var httpClient = new HttpClient())
             {
-                httpClient.DefaultRequestHeaders.Add("Authorization", WfmAuthEndpointToken);
+                httpClient.DefaultRequestHeaders.Add("Authorization", wfmAuthEndpointToken);
 
                 using (var httpContent = new StringContent(string.Empty))
                 {
                     var result = await httpClient.PostAsync(baseUrl, httpContent).ConfigureAwait(false);
 
-                    result.EnsureSuccessStatusCode();
+                    // result.EnsureSuccessStatusCode();
                     string responseBody = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                     return JObject.Parse(responseBody)["access_token"].ToString();

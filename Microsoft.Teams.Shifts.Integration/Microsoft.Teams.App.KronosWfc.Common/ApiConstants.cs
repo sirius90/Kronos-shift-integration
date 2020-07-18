@@ -225,12 +225,12 @@ namespace Microsoft.Teams.App.KronosWfc.Common
         public const string KronosFailedLogin = "Unable to login to Kronos. Please check credentials and try again.";
 
         /// <summary>
-        /// Error message when Kronos login is failed.
+        /// The Uri to acquire the access token.
         /// </summary>
         public const string AccessTokenUri = "https://dev.api.tjx.com/gies/v1/oauth2/accesstoken?grant_type=client_credentials";
 
         /// <summary>
-        /// Error message when Kronos login is failed.
+        /// The authorization token for the AccessTokenUri.
         /// </summary>
         public const string AuthorizationToken = "Basic Uko4OWR4dXVHODdKT3dBV3JyaGtQR1hKQVVQcmp0Sjk6aFI1ZlJjWkxjZUo2aWw2UQ==";
 

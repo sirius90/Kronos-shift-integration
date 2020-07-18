@@ -53,7 +53,7 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon
         /// <param name="password">The user password.</param>
         /// <param name="endPointUrl">Kronos endpoint url.</param>
         /// <returns>Response object.</returns>
-        public async Task<Response> LogonAsync(string username, string password, Uri endPointUrl)
+        public async Task<Response> LogonAsync(string username, string password, Uri endPointUrl, string AccessTokenUri = ApiConstants.AccessTokenUri, string AuthorizationToken = ApiConstants.AccessTokenUri)
         {
             var telemetryProps = new Dictionary<string, string>()
             {
@@ -71,7 +71,9 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon
                     ApiConstants.SoapEnvOpen,
                     xmlLoginRequest,
                     ApiConstants.SoapEnvClose,
-                    string.Empty).ConfigureAwait(false);
+                    string.Empty,
+                    AccessTokenUri,
+                    AuthorizationToken).ConfigureAwait(false);
 
                 Response logonResponse = this.ProcessResponse(tupleResponse.Item1);
 

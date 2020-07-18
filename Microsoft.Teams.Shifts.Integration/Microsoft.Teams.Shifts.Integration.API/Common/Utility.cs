@@ -922,7 +922,9 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
                 var loginKronos = this.logonActivity.LogonAsync(
                  this.appSettings.WfmSuperUsername,
                  this.appSettings.WfmSuperUserPassword,
-                 new Uri(configurationEntity?.WfmApiEndpoint));
+                 new Uri(configurationEntity?.WfmApiEndpoint),
+                 this.appSettings.AccessTokenUri,
+                 this.appSettings.AuthorizationToken);
 
                 loginKronosResult = await loginKronos.ConfigureAwait(false);
 
@@ -1010,14 +1012,14 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
                     telemetryProps.Add("ShiftAccessToken", Resource.IssueShiftsAccessToken);
                     setupDetails.ErrorMessage += Resource.IssueShiftsAccessToken;
                 }
+                setupDetails.WfmAuthEndpoint = this.appSettings.AccessTokenUri;
+                setupDetails.WfmAuthEndpointToken = this.appSettings.AuthorizationToken;
 
-                setupDetails.KronosSession = this.GetKronosSessionAsync().GetAwaiter().GetResult();
                 setupDetails.KronosUserName = this.appSettings.WfmSuperUsername;
                 setupDetails.KronosPassword = this.appSettings.WfmSuperUserPassword;
 
-                setupDetails.WfmAuthEndpoint = this.appSettings.AccessTokenUri;
-                setupDetails.WfmAuthEndpointToken = this.appSettings.AuthorizationToken;
-               
+                setupDetails.KronosSession = this.GetKronosSessionAsync().GetAwaiter().GetResult();
+
                 if (string.IsNullOrEmpty(setupDetails.KronosSession))
                 {
                     telemetryProps.Add("KronosStatus", Resource.InvalidKronosCredentials);

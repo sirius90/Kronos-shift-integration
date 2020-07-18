@@ -495,10 +495,10 @@ namespace Microsoft.Teams.Shifts.Integration.API.Controllers
 
             var openShiftRequests = await this.openShiftActivity.GetOpenShiftDetailsInBatchAsync(
                 new Uri(kronosEndpoint),
-                 WfmAuthEndpoint,
-                 WfmAuthEndpointToken,
-                 SoapEnvOpen,
                 jSession,
+                WfmAuthEndpoint,
+                WfmAuthEndpointToken,
+                SoapEnvOpen,
                 orgJobPathsList,
                 openShiftQueryDateSpan).ConfigureAwait(false);
 

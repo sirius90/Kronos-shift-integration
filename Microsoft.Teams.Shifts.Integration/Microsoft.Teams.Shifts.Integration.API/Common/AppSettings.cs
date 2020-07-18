@@ -41,7 +41,7 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
             this.RedisCacheConfiguration = "Kronos-SHFT-INT-redis.redis.cache.windows.net:6380,password=Aa0Zmf3RXdlX58Ci5Yi5WsN5YGpzisMwoDbLlXMwAAQ=,ssl=True,abortConnect=False"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["RedisCacheConfiguration"]);
             this.ClientSecret = "_-2~wsK-LV3XG_.g4UIT6sqIBP15cXE5My"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["ClientSecret"]);
             this.WfmSuperUsername = "Import"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUsername"]);
-            this.WfmSuperUserPassword = "WfmSuperUserPassword"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword"]);
+            this.WfmSuperUserPassword = "kronites"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword"]);
         }
 
         /// <summary>

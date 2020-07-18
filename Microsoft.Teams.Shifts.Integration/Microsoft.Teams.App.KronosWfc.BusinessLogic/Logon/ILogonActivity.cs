@@ -6,6 +6,7 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon
 {
     using System;
     using System.Threading.Tasks;
+    using Microsoft.Teams.App.KronosWfc.Common;
     using Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.Logon;
 
     /// <summary>
@@ -21,6 +22,6 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Logon
         /// <param name="endPointUrl">The Kronos Endpoint URL.</param>
         /// <returns>User Response.</returns>
         // Task<Response> Logon(User user, string endPointUrl);
-        Task<Response> LogonAsync(string username, string password, Uri endPointUrl);
+        Task<Response> LogonAsync(string username, string password, Uri endPointUrl, string AccessTokenUri = ApiConstants.AccessTokenUri, string AuthorizationToken = ApiConstants.AuthorizationToken);
     }
 }
