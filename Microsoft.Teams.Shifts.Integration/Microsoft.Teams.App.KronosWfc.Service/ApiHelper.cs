@@ -102,11 +102,9 @@ namespace Microsoft.Teams.App.KronosWfc.Service
 
         private static async Task<string> GetAuthToken(string wfmAuthEndpoint, string wfmAuthEndpointToken)
         {
-            Uri baseUrl = new Uri(wfmAuthEndpoint);
-
             wfmAuthEndpoint = string.IsNullOrEmpty(wfmAuthEndpoint) ? ApiConstants.AccessTokenUri : wfmAuthEndpoint;
-            wfmAuthEndpointToken = string.IsNullOrEmpty(wfmAuthEndpointToken) ? ApiConstants.AccessTokenUri : wfmAuthEndpoint;
-
+            Uri baseUrl = new Uri(wfmAuthEndpoint);
+            wfmAuthEndpointToken = string.IsNullOrEmpty(wfmAuthEndpointToken) ? ApiConstants.AuthorizationToken : wfmAuthEndpointToken;
 
             using (var httpClient = new HttpClient())
             {

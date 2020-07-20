@@ -8,7 +8,7 @@ namespace Microsoft.Teams.App.KronosWfc.Common
     /// API Constants class.
     /// </summary>
     public static class ApiConstants
-    {        
+    {
         /// <summary>
         /// Used as an closing braces to send post soap requests.
         /// </summary>
@@ -227,12 +227,12 @@ namespace Microsoft.Teams.App.KronosWfc.Common
         /// <summary>
         /// The Uri to acquire the access token.
         /// </summary>
-        public const string AccessTokenUri = "https://dev.api.tjx.com/gies/v1/oauth2/accesstoken?grant_type=client_credentials";
+        public static string AccessTokenUri = "";
 
         /// <summary>
         /// The authorization token for the AccessTokenUri.
         /// </summary>
-        public const string AuthorizationToken = "Basic Uko4OWR4dXVHODdKT3dBV3JyaGtQR1hKQVVQcmp0Sjk6aFI1ZlJjWkxjZUo2aWw2UQ==";
+        public static string AuthorizationToken = "";
 
         /// <summary>
         /// Used as an opening braces to send post soap requests.

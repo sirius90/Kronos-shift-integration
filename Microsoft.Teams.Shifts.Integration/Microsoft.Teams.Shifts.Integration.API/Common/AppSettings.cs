@@ -6,6 +6,7 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
 {
     using System;
     using Microsoft.Extensions.Configuration;
+    using Microsoft.Teams.App.KronosWfc.Common;
 
     /// <summary>
     /// AppSettings class.
@@ -34,6 +35,10 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
 
             this.keyVaultHelper = keyVaultHelper;
             this.configuration = configuration;
+
+            ApiConstants.AccessTokenUri = "https://dev.api.tjx.com/gies/v1/oauth2/accesstoken?grant_type=client_credentials";//this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AccessTokenUri"]);
+            ApiConstants.AuthorizationToken = "Basic Uko4OWR4dXVHODdKT3dBV3JyaGtQR1hKQVVQcmp0Sjk6aFI1ZlJjWkxjZUo2aWw2UQ==";//this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AuthorizationToken"]);
+
             this.AccessTokenUri = "https://dev.api.tjx.com/gies/v1/oauth2/accesstoken?grant_type=client_credentials";//this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AccessTokenUri"]);
             this.AuthorizationToken = "Basic Uko4OWR4dXVHODdKT3dBV3JyaGtQR1hKQVVQcmp0Sjk6aFI1ZlJjWkxjZUo2aWw2UQ=="; //this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AuthorizationToken"]);
 

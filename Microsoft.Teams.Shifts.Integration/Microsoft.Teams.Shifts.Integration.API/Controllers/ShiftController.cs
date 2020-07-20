@@ -237,7 +237,9 @@ namespace Microsoft.Teams.Shifts.Integration.API.Controllers
                                 StartDateTime = this.utility.CalculateStartDateTime(activity),
                                 EndDateTime = this.utility.CalculateEndDateTime(activity),
                                 Code = string.Empty,
-                                DisplayName = activity.SegmentTypeName, // user.OrgJobPath for REGULAR, TRANSFER use the segment to show different value 
+                                DisplayName = activity.SegmentTypeName == "REGULAR" ? user.OrgJobPath.Split('$')[6].Split('-')[0] + " " + user.OrgJobPath.Split('$')[7].Split('-')[0] + " | " + user.OrgJobPath.Split('$')[6].Split('-')[1] + " " + user.OrgJobPath.Split('$')[7].Split('-')[1]
+                                : activity.SegmentTypeName == "TRANSFER" ? activity.OrgJobPath.Split('/')[6].Split('-')[0] + " " + activity.OrgJobPath.Split('/')[7].Split('-')[0] + " | " + activity.OrgJobPath.Split('/')[6].Split('-')[1] + " " + activity.OrgJobPath.Split('/')[7].Split('-')[1]
+                                : activity.SegmentTypeName,
                             });
                         }
 

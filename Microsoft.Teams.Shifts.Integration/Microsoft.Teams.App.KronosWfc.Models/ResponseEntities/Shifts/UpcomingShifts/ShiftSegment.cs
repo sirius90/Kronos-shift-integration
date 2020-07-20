@@ -52,5 +52,13 @@ namespace Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.Shifts.UpcomingS
         /// </summary>
         [XmlAttribute]
         public string EndDayNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the OrgJobPath.
+        /// </summary>
+        [XmlAttribute]
+        public string OrgJobPath { get; set; }
+        
+
     }
 }
