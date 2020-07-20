@@ -37,8 +37,8 @@ namespace Microsoft.Teams.App.KronosWfc.Service
             string reqXml,
             string soapEnvClose,
             string jSession,
-            string WfmAuthEndpoint = ApiConstants.AccessTokenUri,
-            string WfmAuthEndpointToken = ApiConstants.AuthorizationToken)
+            string WfmAuthEndpoint = "",
+            string WfmAuthEndpointToken = "")
         {
             string soapString = $"{soapEnvOpen}{reqXml}{soapEnvClose}";
 
@@ -103,6 +103,10 @@ namespace Microsoft.Teams.App.KronosWfc.Service
         private static async Task<string> GetAuthToken(string wfmAuthEndpoint, string wfmAuthEndpointToken)
         {
             Uri baseUrl = new Uri(wfmAuthEndpoint);
+
+            wfmAuthEndpoint = string.IsNullOrEmpty(wfmAuthEndpoint) ? ApiConstants.AccessTokenUri : wfmAuthEndpoint;
+            wfmAuthEndpointToken = string.IsNullOrEmpty(wfmAuthEndpointToken) ? ApiConstants.AccessTokenUri : wfmAuthEndpoint;
+
 
             using (var httpClient = new HttpClient())
             {

@@ -67,7 +67,9 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
                 ApiConstants.SoapEnvOpen,
                 xmlScheduleRequest,
                 ApiConstants.SoapEnvClose,
-                jSession).ConfigureAwait(false);
+                jSession,
+                ApiConstants.AccessTokenUri,
+                ApiConstants.AuthorizationToken).ConfigureAwait(false);
 
             UpcomingShifts.Response scheduleResponse = this.ProcessResponse(tupleResponse.Item1);
             scheduleResponse.Jsession = tupleResponse.Item2;
