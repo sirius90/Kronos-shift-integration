@@ -13,6 +13,7 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
     using Microsoft.Teams.App.KronosWfc.Common;
     using Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind;
     using Microsoft.Teams.App.KronosWfc.Service;
+    using ScheduleAudit = Microsoft.Teams.App.KronosWfc.Models.RequestEntities.SchedulingAudit;
     using ScheduleRequest = Microsoft.Teams.App.KronosWfc.Models.RequestEntities.Schedule;
     using UpcomingShifts = Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.Shifts.UpcomingShifts;
 
@@ -74,6 +75,68 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
             UpcomingShifts.Response scheduleResponse = this.ProcessResponse(tupleResponse.Item1);
             scheduleResponse.Jsession = tupleResponse.Item2;
             return scheduleResponse;
+        }
+
+
+        /// <summary>
+        /// This method retrieves all the posted shifts.
+        /// </summary>
+        /// <param name="endPointUrl">The Kronos API endpoint.</param>
+        /// <param name="jSession">The Kronos "token".</param>
+        /// <param name="startDate">The query start date.</param>
+        /// <param name="endDate">The query end date.</param>
+        /// <param name="employees">The list of users to query.</param>
+        /// <returns>A unit of execution that contains the response.</returns>
+        public async Task<UpcomingShifts.Response> ShowPostedShiftsInBatchAsync(
+            Uri endPointUrl,
+            string jSession,
+            string startDate,
+            string endDate,
+            List<ResponseHyperFindResult> employees)
+        {
+            if (employees is null)
+            {
+                throw new ArgumentNullException(nameof(employees));
+            }
+
+            var xmlScheduleRequest = this.CreatePostedShiftsRequestEmployees(
+                startDate,
+                endDate,
+                employees);
+
+            var tupleResponse = await this.apiHelper.SendSoapPostRequestAsync(
+                endPointUrl,
+                ApiConstants.SoapEnvOpen,
+                xmlScheduleRequest,
+                ApiConstants.SoapEnvClose,
+                jSession,
+                ApiConstants.AccessTokenUri,
+                ApiConstants.AuthorizationToken).ConfigureAwait(false);
+
+            //TODO
+            //Create PostedShiftsResponse
+            UpcomingShifts.Response scheduleResponse = this.ProcessResponse(tupleResponse.Item1);
+            scheduleResponse.Jsession = tupleResponse.Item2;
+            return scheduleResponse;
+        }
+
+        private string CreatePostedShiftsRequestEmployees(string startDate, string endDate, List<ResponseHyperFindResult> employees)
+        {
+            ScheduleAudit.Request request = new ScheduleAudit.Request()
+            {
+                Action = ApiConstants.RetrievePosted,
+                SchedulingAudit = new ScheduleAudit.SchedulingAudit()
+                {
+                    Employees = new List<ScheduleAudit.PersonIdentity>(),
+                    QueryDateSpan = $"{startDate} - {endDate}",
+                    Type = ApiConstants.AuditType,
+                },
+            };
+
+            var scheduledEmployees = employees.ConvertAll(x => new ScheduleAudit.PersonIdentity { PersonNumber = x.PersonNumber });
+            request.SchedulingAudit.Employees.AddRange(scheduledEmployees);
+
+            return request.XmlSerialize();
         }
 
         private string CreateUpcomingShiftsRequestEmployees(string startDate, string endDate, List<ResponseHyperFindResult> employees)

@@ -230,6 +230,9 @@
     <Compile Include="RequestEntities\OpenShift\ShiftSegment.cs" />
     <Compile Include="RequestEntities\PayCode\Request.cs" />
     <Compile Include="RequestEntities\Schedule\PersonIdentity.cs" />
+    <Compile Include="RequestEntities\SchedulingAudit\PersonIdentity.cs" />
+    <Compile Include="RequestEntities\SchedulingAudit\Request.cs" />
+    <Compile Include="RequestEntities\SchedulingAudit\SchedulingAudit.cs" />
     <Compile Include="RequestEntities\Schedule\ScheduleReq.cs" />
     <Compile Include="RequestEntities\ShiftsToKronos\AddRequest\Comment.cs" />
     <Compile Include="RequestEntities\ShiftsToKronos\AddRequest\Comments.cs" />

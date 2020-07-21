@@ -30,5 +30,21 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
             string startDate,
             string endDate,
             List<ResponseHyperFindResult> employees);
+
+        /// <summary>
+        /// Shows upcoming shifts.
+        /// </summary>
+        /// <param name="endPointUrl">end Point Url.</param>
+        /// <param name="jSession">jSession object.</param>
+        /// <param name="startDate">Start Date.</param>
+        /// <param name="endDate">End Date.</param>
+        /// <param name="employees">Employees shift data.</param>
+        /// <returns>Upcoming shifts response.</returns>
+        Task<UpcomingShifts.Response> ShowPostedShiftsInBatchAsync(
+            Uri endPointUrl,
+            string jSession,
+            string startDate,
+            string endDate,
+            List<ResponseHyperFindResult> employees);
     }
 }

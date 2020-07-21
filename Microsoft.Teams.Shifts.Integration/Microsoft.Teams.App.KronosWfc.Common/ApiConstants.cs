@@ -125,6 +125,16 @@ namespace Microsoft.Teams.App.KronosWfc.Common
         public const string Retrieve = "Retrieve";
 
         /// <summary>
+        /// Defines the action string for an API action.
+        /// </summary>
+        public const string RetrievePosted = "RetrieveByEmployee";
+
+        /// <summary>
+        /// Defines the Type string for a SchedulingAudit action.
+        /// </summary>
+        public const string AuditType = "SHIFT";
+
+        /// <summary>
         /// Defines the status to be changed from submitted to offered in Kronos side.
         /// </summary>
         public const string Offered = "OFFERED";

@@ -153,6 +153,14 @@ namespace Microsoft.Teams.Shifts.Integration.API.Controllers
                                         DateTime.Now.ToString(queryEndDate, CultureInfo.InvariantCulture),
                                         processBatchUsersQueueInBatch.ToList()).ConfigureAwait(false);
 
+                                // Get posted/unposted status for schedule using SchedulingAudit with the RetrieveByEmployee Action
+                                var postedShifts = await this.upcomingShiftsActivity.ShowPostedShiftsInBatchAsync(
+                                    new Uri(allRequiredConfigurations.WfmEndPoint),
+                                    allRequiredConfigurations.KronosSession,
+                                    DateTime.Now.ToString(queryStartDate, CultureInfo.InvariantCulture),
+                                    DateTime.Now.ToString(queryEndDate, CultureInfo.InvariantCulture),
+                                    processBatchUsersQueueInBatch.ToList()).ConfigureAwait(false);
+
                                 if (shiftsResponse?.Schedule?.ScheduleItems?.ScheduleShift is null)
                                 {
                                     continue;
