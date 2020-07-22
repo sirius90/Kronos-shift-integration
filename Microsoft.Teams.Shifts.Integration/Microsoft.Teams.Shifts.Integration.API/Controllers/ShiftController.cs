@@ -157,7 +157,7 @@ namespace Microsoft.Teams.Shifts.Integration.API.Controllers
                                 var postedShifts = await this.upcomingShiftsActivity.ShowPostedShiftsInBatchAsync(
                                     new Uri(allRequiredConfigurations.WfmEndPoint),
                                     allRequiredConfigurations.KronosSession,
-                                    DateTime.Now.ToString(queryStartDate, CultureInfo.InvariantCulture),
+                                    DateTime.Now.ToString("7/10/2020", CultureInfo.InvariantCulture),//queryStartDate
                                     DateTime.Now.ToString(queryEndDate, CultureInfo.InvariantCulture),
                                     processBatchUsersQueueInBatch.ToList()).ConfigureAwait(false);
 

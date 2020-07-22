@@ -15,6 +15,7 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
     using Microsoft.Teams.App.KronosWfc.Service;
     using ScheduleAudit = Microsoft.Teams.App.KronosWfc.Models.RequestEntities.SchedulingAudit;
     using ScheduleRequest = Microsoft.Teams.App.KronosWfc.Models.RequestEntities.Schedule;
+    using ShiftAudit = Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.Shifts.ShiftAudit;
     using UpcomingShifts = Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.Shifts.UpcomingShifts;
 
     /// <summary>
@@ -77,7 +78,6 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
             return scheduleResponse;
         }
 
-
         /// <summary>
         /// This method retrieves all the posted shifts.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
         /// <param name="endDate">The query end date.</param>
         /// <param name="employees">The list of users to query.</param>
         /// <returns>A unit of execution that contains the response.</returns>
-        public async Task<UpcomingShifts.Response> ShowPostedShiftsInBatchAsync(
+        public async Task<ShiftAudit.Response> ShowPostedShiftsInBatchAsync(
             Uri endPointUrl,
             string jSession,
             string startDate,
@@ -113,9 +113,7 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
                 ApiConstants.AccessTokenUri,
                 ApiConstants.AuthorizationToken).ConfigureAwait(false);
 
-            //TODO
-            //Create PostedShiftsResponse
-            UpcomingShifts.Response scheduleResponse = this.ProcessResponse(tupleResponse.Item1);
+            ShiftAudit.Response scheduleResponse = this.ProcessShiftAuditResponse(tupleResponse.Item1);
             scheduleResponse.Jsession = tupleResponse.Item2;
             return scheduleResponse;
         }
@@ -167,6 +165,18 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
             XDocument xDoc = XDocument.Parse(strResponse);
             var xResponse = xDoc.Root.Descendants().FirstOrDefault(d => d.Name.LocalName.Equals(ApiConstants.Response, StringComparison.Ordinal));
             return XmlConvertHelper.DeserializeObject<UpcomingShifts.Response>(xResponse.ToString());
+        }
+
+        /// <summary>
+        /// Read the xml response into Response object.
+        /// </summary>
+        /// <param name="strResponse">xml response string.</param>
+        /// <returns>Response object.</returns>
+        private ShiftAudit.Response ProcessShiftAuditResponse(string strResponse)
+        {
+            XDocument xDoc = XDocument.Parse(strResponse);
+            var xResponse = xDoc.Root.Descendants().FirstOrDefault(d => d.Name.LocalName.Equals(ApiConstants.Response, StringComparison.Ordinal));
+            return XmlConvertHelper.DeserializeObject<ShiftAudit.Response>(xResponse.ToString());
         }
     }
 }

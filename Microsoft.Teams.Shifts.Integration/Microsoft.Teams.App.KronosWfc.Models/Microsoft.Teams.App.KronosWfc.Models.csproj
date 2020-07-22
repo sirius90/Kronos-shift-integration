@@ -326,6 +326,10 @@
     <Compile Include="ResponseEntities\OpenShift\ShiftSegments.cs" />
     <Compile Include="ResponseEntities\PayCode\PayCode.cs" />
     <Compile Include="ResponseEntities\PayCode\Response.cs" />
+    <Compile Include="ResponseEntities\ShiftAudit\ShiftAuditItem.cs" />
+    <Compile Include="ResponseEntities\ShiftAudit\PersonIdentity.cs" />
+    <Compile Include="ResponseEntities\ShiftAudit\Response.cs" />
+    <Compile Include="ResponseEntities\ShiftAudit\ScheduleAudit.cs" />
     <Compile Include="ResponseEntities\ShiftsToKronos\TimeOffRequests\Employee.cs" />
     <Compile Include="ResponseEntities\ShiftsToKronos\TimeOffRequests\EmployeeGlobalTimeOffRequestItem.cs" />
     <Compile Include="ResponseEntities\ShiftsToKronos\TimeOffRequests\EmployeeRequestMgmt.cs" />

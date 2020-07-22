@@ -8,7 +8,9 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.HyperFind;
+    using ShiftAudit = Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.Shifts.ShiftAudit;
     using UpcomingShifts = Microsoft.Teams.App.KronosWfc.Models.ResponseEntities.Shifts.UpcomingShifts;
+
 
     /// <summary>
     /// Upcoming shift activity interface.
@@ -40,7 +42,7 @@ namespace Microsoft.Teams.App.KronosWfc.BusinessLogic.Shifts
         /// <param name="endDate">End Date.</param>
         /// <param name="employees">Employees shift data.</param>
         /// <returns>Upcoming shifts response.</returns>
-        Task<UpcomingShifts.Response> ShowPostedShiftsInBatchAsync(
+        Task<ShiftAudit.Response> ShowPostedShiftsInBatchAsync(
             Uri endPointUrl,
             string jSession,
             string startDate,

@@ -32,5 +32,6 @@ namespace Microsoft.Teams.App.KronosWfc.Models.RequestEntities.SchedulingAudit
         /// </summary>
         [XmlAttribute]
         public string Type { get; set; }
+
     }
 }
