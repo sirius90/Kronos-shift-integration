@@ -45,8 +45,12 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
             this.StorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=w3hatjpjfkyjs;AccountKey=ek4xarhnMjUl/eVH0zISyYvCnhExSxjREbEQQRQckDUaHe2aNi4SUaa0EN6TlN1SsrUUiBDDK59s59GTzaEB9A==;EndpointSuffix=core.windows.net"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["StorageConnectionString"]);
             this.RedisCacheConfiguration = "Kronos-SHFT-INT-redis.redis.cache.windows.net:6380,password=Aa0Zmf3RXdlX58Ci5Yi5WsN5YGpzisMwoDbLlXMwAAQ=,ssl=True,abortConnect=False"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["RedisCacheConfiguration"]);
             this.ClientSecret = "_-2~wsK-LV3XG_.g4UIT6sqIBP15cXE5My"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["ClientSecret"]);
+
             this.WfmSuperUsername = "Import"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUsername"]);
-            this.WfmSuperUserPassword = "kronites"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword"]);
+            this.WfmSuperUserPassword = ""; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword"]);
+
+            this.WfmSuperUserPassword_USA = "QASW1234"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword_USA"]);
+            this.WfmSuperUserPassword_CANADA = "kronites"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword_CANADA"]);
         }
 
         /// <summary>
@@ -73,6 +77,16 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
         /// Gets or sets WfmSuperUserPassword.
         /// </summary>
         public string WfmSuperUserPassword { get; set; }
+
+        /// <summary>
+        /// Gets or sets WfmSuperUserPassword for the USA datacenter.
+        /// </summary>
+        public string WfmSuperUserPassword_USA { get; set; }
+
+        /// <summary>
+        /// Gets or sets WfmSuperUserPassword for the CANADA datacenter.
+        /// </summary>
+        public string WfmSuperUserPassword_CANADA { get; set; }
 
         /// <summary>
         /// Gets or sets AccessTokenUri.

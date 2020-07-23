@@ -1012,11 +1012,13 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
                     telemetryProps.Add("ShiftAccessToken", Resource.IssueShiftsAccessToken);
                     setupDetails.ErrorMessage += Resource.IssueShiftsAccessToken;
                 }
+
                 setupDetails.WfmAuthEndpoint = this.appSettings.AccessTokenUri;
                 setupDetails.WfmAuthEndpointToken = this.appSettings.AuthorizationToken;
 
                 setupDetails.KronosUserName = this.appSettings.WfmSuperUsername;
-                setupDetails.KronosPassword = this.appSettings.WfmSuperUserPassword;
+                setupDetails.KronosPassword = ApiConstants.SoapEnvOpen.Contains("USA", StringComparison.CurrentCultureIgnoreCase) ? this.appSettings.WfmSuperUserPassword_USA : this.appSettings.WfmSuperUserPassword_CANADA;
+                this.appSettings.WfmSuperUserPassword = setupDetails.KronosPassword;
 
                 setupDetails.KronosSession = this.GetKronosSessionAsync().GetAwaiter().GetResult();
 
