@@ -36,21 +36,21 @@ namespace Microsoft.Teams.Shifts.Integration.API.Common
             this.keyVaultHelper = keyVaultHelper;
             this.configuration = configuration;
 
-            ApiConstants.AccessTokenUri = "https://dev.api.tjx.com/gies/v1/oauth2/accesstoken?grant_type=client_credentials";//this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AccessTokenUri"]);
-            ApiConstants.AuthorizationToken = "Basic Uko4OWR4dXVHODdKT3dBV3JyaGtQR1hKQVVQcmp0Sjk6aFI1ZlJjWkxjZUo2aWw2UQ==";//this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AuthorizationToken"]);
+           ApiConstants.AccessTokenUri = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AccessTokenUri"]);
+            ApiConstants.AuthorizationToken = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AuthorizationToken"]);
 
-            this.AccessTokenUri = "https://dev.api.tjx.com/gies/v1/oauth2/accesstoken?grant_type=client_credentials";//this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AccessTokenUri"]);
-            this.AuthorizationToken = "Basic Uko4OWR4dXVHODdKT3dBV3JyaGtQR1hKQVVQcmp0Sjk6aFI1ZlJjWkxjZUo2aWw2UQ=="; //this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AuthorizationToken"]);
+            this.AccessTokenUri = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AccessTokenUri"]);
+            this.AuthorizationToken = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["AuthorizationToken"]);
 
-            this.StorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=w3hatjpjfkyjs;AccountKey=ek4xarhnMjUl/eVH0zISyYvCnhExSxjREbEQQRQckDUaHe2aNi4SUaa0EN6TlN1SsrUUiBDDK59s59GTzaEB9A==;EndpointSuffix=core.windows.net"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["StorageConnectionString"]);
-            this.RedisCacheConfiguration = "Kronos-SHFT-INT-redis.redis.cache.windows.net:6380,password=Aa0Zmf3RXdlX58Ci5Yi5WsN5YGpzisMwoDbLlXMwAAQ=,ssl=True,abortConnect=False"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["RedisCacheConfiguration"]);
-            this.ClientSecret = "_-2~wsK-LV3XG_.g4UIT6sqIBP15cXE5My"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["ClientSecret"]);
+            this.StorageConnectionString = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["StorageConnectionString"]);
+            this.RedisCacheConfiguration = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["RedisCacheConfiguration"]);
+            this.ClientSecret = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["ClientSecret"]);
 
-            this.WfmSuperUsername = "Import"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUsername"]);
-            this.WfmSuperUserPassword = ""; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword"]);
+            this.WfmSuperUsername = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WorkforceSuperUserName"]);
+            this.WfmSuperUserPassword = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword"]);
 
-            this.WfmSuperUserPassword_USA = "QASW1234"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword_USA"]);
-            this.WfmSuperUserPassword_CANADA = "kronites"; // this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPassword_CANADA"]);
+            this.WfmSuperUserPassword_USA = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPasswordUSA"]);
+            this.WfmSuperUserPassword_CANADA = this.keyVaultHelper.GetSecretByUri(this.configuration["KeyVault"] + "secrets/" + this.configuration["WfmSuperUserPasswordCANADA"]);
         }
 
         /// <summary>
